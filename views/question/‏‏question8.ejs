@@ -10,14 +10,42 @@
     <input size="10" type="name" class="form-control" name="name" id="name" required>
     <div class="text-danger errormessage "></div>
 </div>
-
-<div class="col-lg-6 mb-3">
-    <label for="text" class="form-label">password</label>
-    <input size="10" type="password" class="form-control" name="password" id="password" required>
+<div class=" col-lg-6 mb-3 ">
+    <label for="birthday">תאריך לידה</label>
+    <input type="date" id="birthday" name="birthday">
     <div class="text-danger errormessage "></div>
 </div>
+<div class=" col-lg-6 mb-3 ">
+    <label for="education" class="form-label">השכלה</label>
+    <select type="text" class="form-select" id="education">
+        <option value="00">בחר ערך</option>
+        <option value="withoutEducation">ללא השכלה</option>
+        <option value="highSchool">תיכונית</option>
+        <option value="higherEducation">על תיכונית</option>
+        <option value="vocationalTraining">הכשרה מקצועית</option>
+        <option value="practicalEngineer">הנדסאי</option>
+        <option value="degreeStudent">סטודנט תואר ראשון/שני/שלישי</option>
+        <option value="degreeAcademic">אקדמאי תואר ראשןן/שני/שלישי</option>
+    </select>
+</div>
+
+<div class=" col-lg-6 mb-3 ">
+<label for="employment" class="form-label">תעסוקה</label>
+<select type="text" class="form-select" id="employment">
+    <option value="01">בחר ערך</option>
+    <option value="employee">שכיר</option>
+    <option value="independent">עצמאי</option>
+    <option value="independentEndEmployee">שכיר ועצמאי</option>
+    <option value="controllingEmployee">שכיר בעל שליטה</option>
+    <option value="notEmployee">לא מועסק</option>
+    <option value="pensioner">פנסיונר</option>
+    <option value="receivesAnAnnuity">מקבל קיצבה</option>
+    <option value="revealsTorahInstitution">מלגה מוסד תורני</option>
+</select>
+    </div>
+
 <div class="col-lg-3 mb-3">
-    <input type="submit" value="submit" class="btn btn-outline-primary mb-3" id="loginBtn" >
+    <button type="button" class="btn btn-outline-primary mb-3" id="next8" >המשך</button>
 </div>
 
 
