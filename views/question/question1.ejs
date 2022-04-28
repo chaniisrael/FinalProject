@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<div class="form-group mb-3">
-    <label for="question1" class="form-label">האם ידוע על מורכבות כלשהי בעסקה</label>
-    <select type="text" class="form-select" id="question1">
+<div class="row">
+
+<!--<div class="row">-->
+<form method="get" action="/questionRoute/question2" >
+    <div class="col-md-10  form-group mb-3">
+    <label for="question1" class="form-label">האם ידוע על מורכבות כלשהי בעסקה</label></br>
+    <select type="text" class="form-select" id="question">
         <option value="0">בחר ערך</option>
         <option value="1">אין/ לא ידוע לי</option>
         <option value="2">אני רוכש/ת מבן משפחה </option>
@@ -22,9 +26,30 @@
 
     </select>
 </div>
-<div class="mb-3">
-    <button type="button" class="btn btn-outline-primary mb-3" id="next" >המשך</button>
+<!--</div>-->
+<div class="text-center col-lg-10 mb-3 mt-md-3">
+    <input type="submit" value="המשך" class="btn btn-outline-primary mb-3" id="next1" >
 </div>
+
+
+</form>
+
+</div>
+
+
+<!--<script>-->
+<!--    document.getElementById("next1").addEventListener('click',function(){-->
+<!--        let question = document.getElementById("question");-->
+<!--        console.log(question.value);-->
+<!--        console.log("ןמיןלמןל");-->
+<!--        //req.session.complexity=-->
+<!--        //validate-->
+<!--        //save in session-->
+<!--        //hide current queshtion-->
+<!--        //toggle next-->
+<!--    })-->
+<!--</script>-->
+
 
 </body>
 </html>

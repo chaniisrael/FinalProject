@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var indexRouter3 = require('./routes/register');
 var indexRouter2 = require('./routes/index');
 var usersRouter = require('./routes/users');
+var quesRouter = require('./routes/questions');
+
 
 // var usersRouter = require('./routes/users');
 
@@ -30,6 +32,7 @@ app.use('/index', indexRouter2);
 app.use('/register', indexRouter3);
 console.log("jj")
 app.use('/users', usersRouter);
+app.use('/questionRoute', quesRouter);
 app.use('/', indexRouter);
 
 
