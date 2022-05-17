@@ -27,13 +27,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
-
+console.log("1111")
+app.use('/', indexRouter);
 app.use('/index', indexRouter2);
 app.use('/register', indexRouter3);
 console.log("jj")
 app.use('/users', usersRouter);
 app.use('/questionRoute', quesRouter);
-app.use('/', indexRouter);
+
+
 
 
 

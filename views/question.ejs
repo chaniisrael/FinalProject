@@ -1,0 +1,91 @@
+<%- include('./include/begin.ejs') %>
+<haed>
+    <script src="/js/questionnaire.js"></script>
+
+</haed>
+<body>
+<section id="contact" class="contact">
+    <div class="container">
+        <form action="/register/forms" method="POST" class=" needs-validation novalidate"  >
+            <div  class="  fst-italic row d-flex justify-content-end mb-3 ">
+                <br><br>
+                <div class="card  border-secondary row mb-3" style="max-width: 50rem;">
+                    <br>
+                    <div class="fst-italic row d-flex justify-content-end">
+                <div dir="rtl" class="col-lg-6  ">
+                    <%- include('./question/question1.ejs') %>
+                </div> <br><br><br>
+
+
+                <div dir="rtl" class="   col-lg-6  ">
+                    <div class="input-group">
+                <select selected type="text" class="form-select" id="question"   >
+                    <option  value="0">מהו סוג הנכס</option>
+                    <option value="1">דירה מקבלן</option>
+                    <option value="2">דירה מחיר למשתכן </option>
+                    <option value="3">דירה יד שניה</option>
+                    <option value="4">בית פרטי</option>
+                    <option value="5">בית בבניה עצמית</option>
+                    <option value="6">מגרש</option>
+                </select>
+                    <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+                    </div>
+                </div><br><br><br>
+                </div>
+
+      <div class="fst-italic row d-flex justify-content-end ">
+
+           <div dir="rtl" class="col-lg-4">
+                <%- include('./question/question4.ejs') %>
+           </div><br><br><br>
+
+            <div dir="rtl" class="col-lg-4">
+            <%- include('./question/question5.ejs') %>
+            </div> <br><br><br>
+
+
+            <div dir="rtl" class="col-lg-4">
+                <%- include('./question/question3.ejs') %>
+            </div><br><br><br>
+      </div>
+                </div><br><br><br><br>
+<br><br><br><br>
+
+
+
+            <div dir="rtl" class="card row mb-3" id="jj" style="max-width: 50rem;">
+                <br>
+                <div dir="rtl" class="col-lg-12">
+                    <%- include('./question/question7.ejs') %>
+                </div><br>
+<!--                <ol class="list-group list-group-numbered">-->
+<!--                    <li class="list-group-item"> </li>-->
+<!--                </ol>-->
+              1.<%- include('./question/question8.ejs') %>
+            </div>
+                <div dir="rtl" id="tt">
+                </div><br><br><br>
+
+
+                <div dir="rtl" class="mb-3" id="aboutWork">
+                    <%- include('./question/question9.ejs') %>
+                </div><br><br><br>
+
+
+            <div dir="rtl" class="row">
+
+            </div><br><br><br>
+
+            <div class="text-center col-lg-10 mb-3 mt-md-3">
+                <input type="submit" value="submit" class="btn btn-outline-primary mb-3" id="form" >
+                <h1 id="error"></h1>
+            </div>
+
+
+</div>
+</form>
+</div>
+</section>
+<%- include('./include/end.ejs') %>
+</body>
+</html>

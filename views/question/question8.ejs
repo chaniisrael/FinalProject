@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="get" action="/questionRoute/question9" >
+
+<!--<body>-->
+<!--<section id="contact" class="contact">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-8  form-group mb-3">-->
+<!--<form method="get" action="/questionRoute/question9" >-->
+<div class="row mb-4" id="personalInformation">
+<div class=" col-lg-6 mb-3 ">
+<!--    <label for="name" class="form-label">שם מלא</label>-->
+    <input size="10" type="name" class="form-control" name="name" id="name"  placeholder="שם מלא">
+    <div class="text-danger errormessage "></div>
+</div>
+<div class=" col-lg-6 mb-3 ">
+    <input placeholder="Select date" type="date" id="example" class="form-control picker__input">
+<!--    <label for="birthday">תאריך לידה</label>-->
+<!--    <input type="date" id="birthday" name="birthday" placeholder="תאריך לידה">-->
+    <div class="text-danger errormessage "></div>
+</div>
 
 <div class=" col-lg-6 mb-3 ">
-    <label for="name" class="form-label">שם מלא</label>
-    <input size="10" type="name" class="form-control" name="name" id="name" required>
-    <div class="text-danger errormessage "></div>
-</div>
-<div class=" col-lg-6 mb-3 ">
-    <label for="birthday">תאריך לידה</label>
-    <input type="date" id="birthday" name="birthday">
-    <div class="text-danger errormessage "></div>
-</div>
-<div class=" col-lg-6 mb-3 ">
-    <label for="education" class="form-label">השכלה</label>
+    <div class="  input-group ">
+<!--    <label for="education" class="form-label">השכלה</label>-->
     <select type="text" class="form-select" id="education">
-        <option value="00">בחר ערך</option>
+        <option value="00">השכלה</option>
         <option value="withoutEducation">ללא השכלה</option>
         <option value="highSchool">תיכונית</option>
         <option value="higherEducation">על תיכונית</option>
@@ -29,12 +31,15 @@
         <option value="degreeStudent">סטודנט תואר ראשון/שני/שלישי</option>
         <option value="degreeAcademic">אקדמאי תואר ראשןן/שני/שלישי</option>
     </select>
+        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+    </div>
 </div>
 
-<div class=" col-lg-6 mb-3 ">
-<label for="employment" class="form-label">תעסוקה</label>
-<select type="text" class="form-select" id="employment">
-    <option value="01">בחר ערך</option>
+<div class=" col-lg-6 mb-3  ">
+    <div class="  input-group ">
+<!--<label for="employment" class="form-label">תעסוקה</label>-->
+<select type="text" class="form-select" id="employment" onclick={theJob} >
+    <option value="01">תעסוקה</option>
     <option value="employee">שכיר</option>
     <option value="independent">עצמאי</option>
     <option value="independentEndEmployee">שכיר ועצמאי</option>
@@ -44,12 +49,21 @@
     <option value="receivesAnAnnuity">מקבל קיצבה</option>
     <option value="revealsTorahInstitution">מלגה מוסד תורני</option>
 </select>
+    <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
     </div>
+</div>
+</div>
 
-    <div class="text-center col-lg-10 mb-3 mt-md-3">
-        <input type="submit" value="המשך" class="btn btn-outline-primary mb-3" id="next8" >
-    </div>
 
-</form>
-</body>
-</html>
+<!--    <div class="text-center col-lg-10 mb-3 mt-md-3">-->
+<!--        <input type="submit" value="המשך" class="btn btn-outline-primary mb-3" id="next8" >-->
+<!--    </div>-->
+
+<!--</form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;</section>&ndash;&gt;-->
+
+<!--</body>-->
+<!--</html>-->

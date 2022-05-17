@@ -1,31 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="get" action="/questionRoute/question10" >
 
-<div class=" col-lg-6 mb-3 ">
-    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>
-    <select type="text" class="form-select" id="seniorityInWork">
-        <option value="02">בחר ערך</option>
+<!--<body>-->
+<!--<section id="contact" class="contact">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-8  form-group mb-3">-->
+<!--<form method="get" action="/questionRoute/question10" >-->
+<div class="row card " id="salary" style="max-width: 50rem;" >
+    <br>
+<div class="row">
+<div class=" d-none col-lg-6 mb-3 " id="seniorityInWork">
+<!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+<div class="input-group">
+    <select type="text" class="form-select" >
+        <option value="02">וותק בעבודה</option>
         <option value="lessThanHaifYear">פחות מחצי שנה</option>
         <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
         <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
         <option value="OverHisYears">מעל שלוש שנים</option>
     </select>
+    <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
 </div>
-<div class="mb-3">
-    <label for="monthlySalary" class="form-label">משכורת חודשית</label>
-    <input type="text" class="form-control" placeholder="הזינו" required="" pattern="[0-9]*" inputmode="numeric"id="monthlySalary  value="">
 </div>
 
-<div class="col-lg-3 mb-3">
-    <button type="button" class="btn btn-outline-primary mb-3" id="next9" >המשך</button>
-</div>
-</form>
 
-</body>
-</html>
+
+<div class=" d-none col-lg-6 mb-3" id="salary11" >
+    <div class=" input-group" >
+    <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
+    <input type="text" class="form-control" required  placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary">
+    <span class="input-group-text">₪</span>
+    </div>
+</div>
+
+    <div class=" d-none col-lg-6 mb-3 " id="seniorityInWork2">
+        <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+        <div class="input-group">
+            <select type="text" class="form-select" >
+                <option value="02">וותק העסק</option>
+                <option value="lessThanHaifYear">פחות מחצי שנה</option>
+                <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
+                <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
+                <option value="OverHisYears">מעל שלוש שנים</option>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+        </div>
+    </div>
+
+    <div class=" d-none col-lg-6 mb-3" id="salary12" >
+        <div class=" input-group" >
+            <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
+            <input type="text" class="form-control" required  placeholder="הכנסה חודשית ממוצעת" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
+            <span class="input-group-text">₪</span>
+        </div>
+    </div>
+
+    <div class=" d-none col-lg-6 mb-3 " id="seniorityInWork3">
+        <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+        <div class="input-group">
+            <select type="text" class="form-select" >
+                <option value="02">וותק בתפקיד</option>
+                <option value="lessThanHaifYear">פחות מחצי שנה</option>
+                <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
+                <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
+                <option value="OverHisYears">מעל שלוש שנים</option>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+        </div>
+    </div>
+
+<!--    <div class="col-lg-4 mb-3" >-->
+<!--מספר ילדים מתחת לגיל 18-->
+<!--    </div>-->
+
+    <div class="d-none row mb-3" id="notEmployed1" >
+        <%- include('./question21.ejs') %>
+    </div>
+
+    <div class="d-none row mb-3" id="pension" >
+        <%- include('./question22.ejs') %>
+    </div>
+    <div class="d-none row mb-3" id="annuity" >
+        <%- include('./question23.ejs') %>
+    </div>
+    <div class="d-none row mb-3" id="scholarship" >
+        <%- include('./question19.ejs') %>
+    </div>
+
+    <div class="d-none row mb-3" id="mons3" >
+        <%- include('./question11.ejs') %>
+    </div>
+
+<div class="d-none" id="aboutRevenue">
+
+    <div class=" col-lg-12 mb-3 ">
+        <div class="input-group">
+            <select type="text" class="form-select" id="moreRevenue" onclick= {additionalRevenue} >
+                <option value="02">האם יש הכנסות נוספות</option>
+                <option value="yes1">כן</option>
+                <option value="no">לא</option>
+
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+        </div>
+    </div>
+
+<!--    <div class="row" id="additionalRevenue">-->
+
+<!--    </div>-->
+
+
+
+    <div class="row mb-3" >
+        <%- include('./question13.ejs') %>
+
+    </div>
+
+    <div class=" col-lg-12 mb-3 ">
+        <div class="input-group">
+            <select type="text" class="form-select" id="commitment" onclick= {commitment} >
+                <option value="02">האם יש התחיביות חודשיות ליותר מחצי שנה?</option>
+                <option value="yes1">כן</option>
+                <option value="no">לא</option>
+
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+        </div>
+    </div>
+
+    <div class="row mb-3" >
+        <%- include('./question15.ejs') %>
+
+    </div>
+
+    <div class=" col-lg-12 mb-3 ">
+        <div class="input-group">
+            <select type="text" class="form-select" id="pansyProblem" onclick= {pansyProblem} >
+                <option value="02">האם היו בעיות בהתנהלות הפנססית?</option>
+                <option value="yes1">כן</option>
+                <option value="no">לא</option>
+
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+        </div>
+    </div>
+
+    <div class="row mb-3" >
+        <%- include('./question17.ejs') %>
+    </div>
+</div>
+</div>
+</div>
+
+<!--<div class="col-lg-4 mb-3">-->
+<!--<label for="formFile" class="form-label"  >עובר ושב</label>-->
+<!--<input class="form-control" type="file" id="formFile" placeholder="העלת עובר ושב ב3 חודשים אחרונים">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-lg-3 mb-3">-->
+<!--    <button type="button" class="btn btn-outline-primary mb-3" id="next9" >המשך</button>-->
+<!--</div>-->
+<!--</form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<!--</body>-->
+<!--</html>-->

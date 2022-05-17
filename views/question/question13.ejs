@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div>
-    <a>פרוט הכנסות נוספות</a>
-</div>
-<div class=" col-lg-6 mb-3 ">
+
+<!--<body>-->
+<!--<section id="contact" class="contact">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-8  form-group mb-3">-->
+<!--                <form method="get" action="/questionRoute/question14" >-->
+<!--<div>-->
+<div class="row d-none " id="revenue">
+<div class=" col-lg-5 mb-3 ">
     <select type="text" class="form-select" id="typeOfIncome">
-        <label for="typeOfIncome" class="form-label">סוג הכנסה</label>
-    <option class="">בחרו</option>
+    <option class="">סוג הכנסה</option>
     <option class="" value="foods">מזונות</option>
     <option class="" value="scholarship">מלגה</option>
     <option class="" value="rent">שכירות</option>
@@ -19,16 +17,25 @@
     </select>
     </div>
 
-<div>
-    <label for="MonthlyIncomeLevel" class="form-label">גובה הכנסה חודשית</label>
-    <input type="text" placeholder="לדוגמה 2,000" required="" max="1000000" pattern="[0-9]*" id="MonthlyIncomeLevel" value="">
+<div class=" col-lg-4 mb-3 ">
+    <div class="input-group">
+        <!--    <label for="MonthlyIncomeLevel" class="form-label">גובה הכנסה חודשית</label>-->
+    <input class="form-control" type="number"  required placeholder="גובה הכנסה חודשית" max="1000000" pattern="[0-9]*" id="MonthlyIncomeLevel" >
+        <span class="input-group-text">₪</span>
+    </div>
+</div>
+
 </div>
 <!--<span>+ הוסיפו הכנסה</span>-->
 
-<div class="col-lg-3 mb-3">
-    <button type="button" class="btn btn-outline-primary mb-3" id="next13" >המשך</button>
-</div>
+<!--<div class="col-lg-3 mb-3">-->
+<!--    <button type="button" class="btn btn-outline-primary mb-3" id="next13" >המשך</button>-->
+<!--</div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
-
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
