@@ -5,6 +5,9 @@ let router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+router.post('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 router.get('/register', function(req, res, next) {
 
   res.render('register',{message1:""});

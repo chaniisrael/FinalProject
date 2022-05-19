@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const loginController = require('../colntrollers/login');
+// const loginController = require('../colntrollers/login');
  console.log("chaniisrae")
 
 router.get('/forms', function(req, res, next) {
