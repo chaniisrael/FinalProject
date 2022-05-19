@@ -96,7 +96,7 @@ function PersonalInformation(i)
     // console.log(document.getElementById("name"+"${i}").value,"bbbbb")
 
     let job = document.querySelectorAll('.job') // we check if were clicked on the delete button of a specific image.
-    for (let j = 0, len = job.length; i < len; i++) {
+    for (let j = 0, len = job.length; j < len; j++) {
         job[j].addEventListener('click', function () {
             theJob(job[j].value,i)//שולחים לפונקציה שמוחקת את התמונה הזאת
         });
