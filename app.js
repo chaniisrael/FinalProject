@@ -33,7 +33,7 @@ app.use('/index', indexRouter2);
 app.use('/register', indexRouter3);
 console.log("jj")
 app.use('/users', usersRouter);
-app.use('/questionRoute', quesRouter);
+app.use('/questions', quesRouter);
 
 
 
