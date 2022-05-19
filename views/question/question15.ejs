@@ -9,8 +9,8 @@
 <div class="row d-none" id="commit">
 <div class=" col-lg-6 mb-3 ">
 <select type="text" class="form-select" id="typeOfCommitment">
-    <label for="typeOfCommitment" class="form-label">סוג התחיבות</label>
-    <option class="">בחרו</option>
+<!--    <label for="typeOfCommitment" class="form-label">סוג התחיבות</label>-->
+    <option class="">סוג התחיבות</option>
     <option class="" value="bankLoan">הלוואה בנקאית</option>
     <option class="" value="nonBankLoan">הלוואה חוץ בנקאית</option>
     <option class="" value="mortgage">משכנתא על נכס אחר</option>
@@ -18,10 +18,17 @@
     <option class="" value="paymentOfRent">תשלום שכר דירה</option></select>
 </div>
 
-<div>
-    <label for="MonthlyPayment" class="form-label">תשלום חודשי</label>
-    <input type="text" placeholder="לדוגמה 2,000" required="" max="1000000" pattern="[0-9]*" id="MonthlyPayment" value="">
-</div>
+<!--<div>-->
+<!--    <label for="MonthlyPayment" class="form-label">תשלום חודשי</label>-->
+<!--    <input type="text" placeholder="לדוגמה 2,000" required="" max="1000000" pattern="[0-9]*" id="MonthlyPayment" value="">-->
+<!--</div>-->
+    <div class=" col-lg-6 mb-3 ">
+        <div class="input-group">
+            <!--    <label for="MonthlyIncomeLevel" class="form-label">גובה הכנסה חודשית</label>-->
+            <input class="form-control" type="number"  required placeholder="גובה תשלום חודשי" max="1000000" pattern="[0-9]*" id="MonthlyIncomeLevel2" >
+            <span class="input-group-text">₪</span>
+        </div>
+    </div>
 </div>
 <!--<span>+ הוסיפו הכנסה</span>-->
 

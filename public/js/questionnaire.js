@@ -13,9 +13,19 @@ let i=1;
 
 function question (e)
 {
+    // if(e.target.value ===1 || e.target.value ===2 ||e.target.value ===2)
+    //     document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
+
+    if(e.target.value ==1)
+    {
+        i+=1;
+        PersonalInformation(i)
+        //document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
+
+    }
 
 
-    if(e.target.value ==2)
+        if(e.target.value ==2)
     {
         i+=1;
         PersonalInformation(i)
@@ -29,14 +39,22 @@ function question (e)
         document.getElementById("buttonPlos").addEventListener("click", buttonPlos);
 
     }
-console.log(e.target.value);
+    // document.getElementById().rem
+    // let clearImage = document.querySelectorAll('addJob') // we check if were clicked on the delete button of a specific image.
+    // for (let i = 0, len = clearImage.length; i < len; i++) {
+    //     clearImage[i].addEventListener('click', function () {
+    //         theJob(clearImage[i])//שולחים לפונקציה שמוחקת את התמונה הזאת
+    //     });
+    // }
+
+    console.log(e.target.value);
 }
 //---------------------------------------------------------------
 function PersonalInformation(i)
 {
-    document.getElementById("jj").innerHTML+=`<div class="row mb-4">  
-${i}. <div class=" col-lg-5 mb-3 ">
-    <input size="10" type="name" class="form-control" name="name" id="name"  placeholder="שם מלא">
+   // document.getElementById("jj").innerHTML+=document.getElementById("personalInformation").innerHTML
+    document.getElementById("jj").innerHTML+=`<div class="row mb-4">${i}. <div class=" col-lg-5 mb-3 ">
+    <input size="10" type="name" class="form-control" name="name" id="name${i}."  placeholder="שם מלא">
     <div class="text-danger errormessage "></div>
 </div>
 <div class=" col-lg-4 mb-3 ">
@@ -62,7 +80,7 @@ ${i}. <div class=" col-lg-5 mb-3 ">
 
 <div class=" col-lg-4 mb-3  ">
     <div class="  input-group ">
-<select type="text" class="form-select" id="employment">
+<select type="text" class="form-select"  id="employment" onclick={theJob}>
     <option value="01">תעסוקה</option>
     <option value="employee">שכיר</option>
     <option value="independent">עצמאי</option>
@@ -86,6 +104,7 @@ function buttonPlos(e)
 //------------------------------------------------
 function theJob(e) {
 
+    console.log("uuuuuuuuuuuu")
     document.getElementById("seniorityInWork").classList.add('d-none');
     document.getElementById("salary11").classList.add('d-none');
     document.getElementById("seniorityInWork2").classList.add('d-none');
@@ -122,7 +141,8 @@ function theJob(e) {
 
     if (e.target.value === "revealsTorahInstitution" || e.target.value === "employee" || e.target.value==="independentEndEmployee" || e.target.value === "independent" || e.target.value === "controllingEmployee" || e.target.value === "notEmployee" || e.target.value === "pensioner" || e.target.value === "receivesAnAnnuity" ) {
         document.getElementById("mons3").classList.remove('d-none')
-        document.getElementById("aboutRevenue").classList.remove('d-none')}
+        document.getElementById("aboutRevenue").classList.remove('d-none')
+        document.getElementById("aboutWork").classList.remove('d-none')}
 
 }
 

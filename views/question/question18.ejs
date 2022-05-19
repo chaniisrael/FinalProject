@@ -1,19 +1,60 @@
-<%- include('../include/begin.ejs') %>
 
-<body>
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="row">
-            <%- include('../include/beginning.ejs') %>
-            <div class="col-lg-8  form-group mb-3">
-<form method="get" action="/questionRoute/question19" >
-
-האם תרצו לדחות את ההחזר החודשי
-</form>
+        <div class=" d-none col-lg-6 mb-3 " id="seniorityInWork">
+            <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+            <div class="input-group">
+                <select type="text" class="form-select" >
+                    <option value="02">וותק בעבודה</option>
+                    <option value="lessThanHaifYear">פחות מחצי שנה</option>
+                    <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
+                    <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
+                    <option value="OverHisYears">מעל שלוש שנים</option>
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
             </div>
         </div>
-    </div>
-</section>
-<%- include('../include/end.ejs') %>
-</body>
-</html>
+
+
+
+        <div class=" d-none col-lg-6 mb-3" id="salary11" >
+            <div class=" input-group" >
+                <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
+                <input type="text" class="form-control" required  placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary">
+                <span class="input-group-text">₪</span>
+            </div>
+        </div>
+
+        <div class=" d-none col-lg-6 mb-3 " id="seniorityInWork2">
+            <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+            <div class="input-group">
+                <select type="text" class="form-select" >
+                    <option value="02">וותק העסק</option>
+                    <option value="lessThanHaifYear">פחות מחצי שנה</option>
+                    <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
+                    <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
+                    <option value="OverHisYears">מעל שלוש שנים</option>
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+            </div>
+        </div>
+
+        <div class=" d-none col-lg-6 mb-3" id="salary12" >
+            <div class=" input-group" >
+                <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
+                <input type="text" class="form-control" required  placeholder="הכנסה חודשית ממוצעת" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
+                <span class="input-group-text">₪</span>
+            </div>
+        </div>
+
+        <div class=" d-none col-lg-6 mb-3 " id="seniorityInWork3">
+            <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
+            <div class="input-group">
+                <select type="text" class="form-select" >
+                    <option value="02">וותק בתפקיד</option>
+                    <option value="lessThanHaifYear">פחות מחצי שנה</option>
+                    <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
+                    <option value="betweenOnYearAndThreeYears">בין שנה לשלוש שנים</option>
+                    <option value="OverHisYears">מעל שלוש שנים</option>
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+            </div>
+        </div>
