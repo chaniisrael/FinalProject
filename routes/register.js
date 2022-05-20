@@ -24,18 +24,23 @@ router.get('/password', function(req, res, next) {
     res.redirect('/register');
 });
 //------------------------------------------------------------------------------
-router.get('/forms', function(req, res, next) {
-
-    res.render('forms');
-});
-router.post('/forms', function(req, res, next) {
-
-    res.render('forms');
-});
+// router.get('/forms', function(req, res, next) {
+//     req.session.name=req.body.name;
+//     console.log(req.session.name);
+//     debugger;
+//     res.render('forms');
+// });
+// router.post('/forms', function(req, res, next) {
+//     req.session.name=req.body.name;
+//     console.log(req.session.name);
+//     debugger;
+//     res.render('forms');
+// });
 
 // router.post('index', function(req, res, next) {
 //     res.render('index');
 // });
+router.post('/from',loginController.addingDetilsFromQuestionnaire)
 router.post('/save', loginController.addEmail);
 router.post('/findIfExit', loginController.findEmail);
 module.exports = router;
