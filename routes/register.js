@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+let btoa = require('btoa');
 const loginController = require('../controllers/login');
 
 /* GET home page. */
@@ -16,6 +17,9 @@ router.post('/password', function(req, res, next) {
     req.session.lastName=req.body.lastName;
     req.session.phone=req.body.phone;
     req.session.mail=req.body.mail;
+    // req.session.password=req.body.password;
+
+    // req.session.password=window.btoa(req.body.password);
     res.render('password');
 });
 //------------------------------------------------------------------------------------------------------------------------------
@@ -40,7 +44,12 @@ router.get('/password', function(req, res, next) {
 // router.post('index', function(req, res, next) {
 //     res.render('index');
 // });
-router.post('/from',loginController.addingDetilsFromQuestionnaire)
-router.post('/save', loginController.addEmail);
+router.post('/forms',loginController.addingDetilsFromQuestionnaire)
+
+ router.post('/save', loginController.addEmail);
 router.post('/findIfExit', loginController.findEmail);
+// router.post('/save', function(req, res, next) {
+//     req.body.password =btoa(req.body.password);
+//     router.post('/save', loginController.addEmail);
+// });
 module.exports = router;
