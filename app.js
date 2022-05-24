@@ -10,6 +10,8 @@ var indexRouter3 = require('./routes/register');
 var indexRouter2 = require('./routes/index');
 var usersRouter = require('./routes/users');
 var quesRouter = require('./routes/questions');
+const apiRoutes = require('./routes/api');
+
 
 
 // var usersRouter = require('./routes/users');
@@ -34,7 +36,7 @@ app.use('/register', indexRouter3);
 console.log("jj")
 app.use('/users', usersRouter);
 app.use('/questions', quesRouter);
-
+app.use('/api', apiRoutes);
 
 
 

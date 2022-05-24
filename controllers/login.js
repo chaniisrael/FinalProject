@@ -1,20 +1,19 @@
 const db = require('../models'); //contain the Contact model, which is accessible via db.Contact
 let atob = require('atob');
-
 exports.findUserName = (req, res, next) => {
     // req.session.password=window.atob(req.session.password);
     // req.body.password= atob(req.body.password);
     console.log( req.body.password);
     // console.log("חני")
     // console.log('find '+req.body.mail);
-  db.Users.findAll({where: {userName:req.body.userName, password:req.body.password}})
+    db.Users.findAll({where: {userName:req.body.userName, password:req.body.password}})
         .then((result) => {
             // console.log(result+"jbh")
             if(result.length===0)
                 return res.render('login',{message2:"השם משתמש או הסיסמה שגויים"});
             else
-             return res.render('menu-login',{message3:"ברוכה הבאה"+" "+req.body.userName});
-           // return res.json('הינך רשום לאתר');
+                return res.render('menu-login',{message3:"ברוכה הבאה"+" "+req.body.userName});
+            // return res.json('הינך רשום לאתר');
 
         })
         .catch((err) => {
@@ -25,9 +24,6 @@ exports.findUserName = (req, res, next) => {
 
 
 };
-
-
-
 exports.findEmail = (req, res, next) => {
     console.log('find '+req.body.mail);
     req.session.firstName=req.body.firstName;
@@ -77,11 +73,11 @@ exports.addEmail = (req, res, next) => {
 };
 exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     console.log("ppppppppppppppppppppppp")
-console.log(req.body.name)
-     let name = req.body.name;
-     let date = req.body.date;
-     let education = req.body.education;
-     let theJob = req.body;
+    console.log(req.body.name)
+    let name = req.body.name;
+    let date = req.body.date;
+    let education = req.body.education;
+    let theJob = req.body;
 
 
     return  res.render('forms',{message90:req.body.date});

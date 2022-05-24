@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let btoa = require('btoa');
+// let btoa = require('btoa');
 const loginController = require('../controllers/login');
 
 /* GET home page. */
@@ -46,7 +46,8 @@ router.get('/password', function(req, res, next) {
 // });
 router.post('/forms',loginController.addingDetilsFromQuestionnaire)
 
- router.post('/save', loginController.addEmail);
+// req.body.password =btoa(req.body.password);
+router.post('/save', loginController.addEmail);
 router.post('/findIfExit', loginController.findEmail);
 // router.post('/save', function(req, res, next) {
 //     req.body.password =btoa(req.body.password);

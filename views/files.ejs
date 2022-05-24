@@ -1,3 +1,38 @@
-<div>
-    ojnopl;
+<%- include('./include/begin.ejs') %>
+<div class="mt-3">
+    <h1>:להשלמת הבקשה יש לצרף את המסמכים הבאים </h1>
+
+<form method="post" enctype="multipart/form-data" action="/api/saveFiles" id="myFiles">
+    <h3>ריכוז יתרות עדכני מחשבון הבנק בו מתנהל חשבונכם</h3>
+        <div class="input-group">
+            <label for="formFile" class="form-label">ריכוז יתרות</label>
+            <input class="form-control" id = "myFiles" name = "myFiles" type="file" multiple>
+        </div>
+        <button class="submit-btn" type='submit'>העלה קובץ</button>
+    </form>
+    <form method="post" enctype="multipart/form-data" action="/api/saveFiles1" id="myFiles">
+        <h3>פרוט הלוואות </h3>
+        <div class="input-group">
+            <label for="formFile" class="form-label">פרוט הלוואות</label>
+            <input class="form-control" id = "myFiles1" name = "myFiles1" type="file" multiple>
+        </div>
+        <button class="submit-btn" type='submit'>העלה קובץ</button>
+    </form>
+    <form method="post" enctype="multipart/form-data" action="/api/saveFiles11" id="myFiles11">
+        <h3>עובר ושב</h3>
+        <div class="input-group">
+            <label for="formFile" class="form-label">עובר ושב</label>
+            <input class="form-control" id = "myFiles11" name = "myFiles11" type="file" multiple>
+        </div>
+        <button class="submit-btn" type='submit'>העלה קובץ</button>
+    </form>
+    <form method="post" enctype="multipart/form-data" action="/api/saveFiles111" id="myFiles111">
+        <h3>תלוש שכר</h3>
+        <div class="input-group">
+            <label for="formFile" class="form-label">תלוש שכר</label>
+            <input class="form-control" id = "myFiles111" name = "myFiles111" type="file" multiple>
+        </div>
+        <button class="submit-btn" type='submit'>העלה קובץ</button>
+    </form>
 </div>
+    <%- include('./include/end.ejs') %>
