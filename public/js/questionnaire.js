@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("question7").addEventListener("click", question);
     document.getElementById("employment").addEventListener("click", theJob);
-    document.getElementById("myForm111").addEventListener("onsubmit", mysubmit);
+    document.getElementById("form12").addEventListener("onsubmit", mysubmit);
 
 
 }, false);
@@ -11,10 +11,10 @@ let i=0;
 
 function mysubmit(e)
 {
-    e.preventDefault()
+    // e.preventDefault()
     console.log("ccccccccccccccccc")
-    console.log(document.getElementById("1"))
-    e.preventDefault()
+    // console.log(document.getElementById("1"))
+    // e.preventDefault()
 
 }
 
@@ -219,7 +219,7 @@ function additionalRevenue(e)
     {
         document.getElementById("revenue").innerHTML=`<div class="row"> <div class=" col-lg-6 mb-3 ">
           <div class="input-group">
-            <select type="text" class="form-select" id="typeOfIncome" required> 
+            <select type="text" class="form-select" name="typeOfIncome" id="typeOfIncome" required> 
                 <option class="">סוג הכנסה</option>
                 <option class="" value="foods">מזונות</option>
                 <option class="" value="scholarship">מלגה</option>
@@ -231,7 +231,7 @@ function additionalRevenue(e)
        </div>
         <div class=" col-lg-6 mb-3 ">
             <div class="input-group">
-                <input class="form-control" type="number" required placeholder="גובה הכנסה חודשית" max="1000000"
+                <input class="form-control" type="number" name="monthlyIncomeLevel" required placeholder="גובה הכנסה חודשית" max="1000000"
                        pattern="[0-9]*" id="MonthlyIncomeLevel">
                     <span class="input-group-text">₪</span>
             </div>
@@ -252,7 +252,7 @@ function commitment(e) {
         document.getElementById("commit").innerHTML=`<div class="row" >
         <div class=" col-lg-6 mb-3 ">
            <div class="input-group">
-            <select type="text" class="form-select" id="typeOfCommitment" required>
+            <select type="text" class="form-select" name="typeOfCommitment" id="typeOfCommitment" required>
               <option class="">סוג התחיבות</option>
               <option class="" value="bankLoan">הלוואה בנקאית</option>
               <option class="" value="nonBankLoan">הלוואה חוץ בנקאית</option>
@@ -265,7 +265,7 @@ function commitment(e) {
           </div>
           <div class=" col-lg-6 mb-3 ">
              <div class="input-group">
-                <input class="form-control" type="number"  required placeholder="גובה תשלום חודשי" max="1000000" pattern="[0-9]*" id="MonthlyIncomeLevel2" >
+                <input class="form-control" type="number" name="monthlyPaymentAmount" required placeholder="גובה תשלום חודשי" max="1000000" pattern="[0-9]*" id="MonthlyIncomeLevel2" >
                 <span class="input-group-text">₪</span>
              </div>
           </div>
@@ -281,7 +281,7 @@ function pansyProblem(e) {
     {
         document.getElementById("problem").innerHTML=`<div class="row"><div class=" col-lg-6 mb-3" >
           <div class="input-group">
-            <select type="text" class="form-select" id="problemType" required>
+            <select type="text" class="form-select" name="problemType" id="problemType" required>
               <option class="">סוג בעיה</option>
               <option  value="checks">שיקים ללא כיסוי</option>
               <option value="loans">הלוואות בפיגור</option>
@@ -293,7 +293,7 @@ function pansyProblem(e) {
       </div>
      <div class=" col-lg-6 mb-3">
        <div class="input-group">
-          <select type="text" class="form-select" id="seniorityInWork" required>
+          <select type="text" class="form-select" name="problemOneLastTime" required>
             <option value="02">מתי בפעם האחרונה?</option>
             <option value="lessThanHaifYear">פחות מחצי שנה</option>
             <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -312,9 +312,9 @@ function employee()
 {
     document.getElementById("aboutWork").innerHTML += `<div class=" row mb-4" id="aboutWork2">
 <br><br>
-           <div class="  col-lg-6 mb-3 " id="seniorityInWork" required>
+           <div class="  col-lg-6 mb-3"   id="seniorityInWork" required>
             <div class="input-group">
-                <select type="text" class="form-select" >
+                <select type="text" class="form-select" name="seniorityInWork"  >
                     <option value="02">וותק בעבודה</option>
                     <option value="lessThanHaifYear">פחות מחצי שנה</option>
                     <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -326,7 +326,7 @@ function employee()
         </div>
         <div class="  col-lg-6 mb-3" id="salary11" >
             <div class=" input-group" >
-                <input type="number" class="form-control" required  placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary">
+                <input type="number" class="form-control" required name="monthlySalary" placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary">
                 <span class="input-group-text">₪</span>
             </div>
         </div>
@@ -339,7 +339,7 @@ function independent()
            <div class="  col-lg-6 mb-3 " id="seniorityInWork2">
             <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
             <div class="input-group">
-                <select type="text" class="form-select" required>
+                <select type="text" class="form-select" name="businessSeniority" required>
                     <option value="02">וותק העסק</option>
                     <option value="lessThanHaifYear">פחות מחצי שנה</option>
                     <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -353,7 +353,7 @@ function independent()
         <div class="  col-lg-6 mb-3" id="salary12" >
             <div class=" input-group" >
                 <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
-                <input type="number" class="form-control" required  placeholder="הכנסה חודשית ממוצעת" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
+                <input type="number" class="form-control" required name="averageMonthlyIncome" placeholder="הכנסה חודשית ממוצעת" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
                 <span class="input-group-text">₪</span>
             </div>
         </div>
@@ -367,7 +367,7 @@ function controllingEmployee()
             <div class="  col-lg-6 mb-3 " id="seniorityInWork3">
             <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
             <div class="input-group">
-                <select type="text" class="form-select" required>
+                <select type="text" class="form-select" name="seniorityInOffice" required>
                     <option value="02">וותק בתפקיד</option>
                     <option value="lessThanHaifYear">פחות מחצי שנה</option>
                     <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -379,7 +379,7 @@ function controllingEmployee()
         </div>
         <div class="  col-lg-6 mb-3" id="salary11" >
             <div class=" input-group" >
-                <input type="number" class="form-control" required  placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
+                <input type="number" class="form-control" required name="monthlySalary2" placeholder="משכורת חודשית" pattern="[0-9]*" inputmode="numeric" id="monthlySalary2">
                 <span class="input-group-text">₪</span>
             </div>
         </div>
@@ -392,7 +392,7 @@ function notEmployee(){
 <div class="  col-lg-6 mb-3 " id="seniorityInWork4">
     <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
     <div class="input-group">
-        <select type="text" class="form-select" required>
+        <select type="text" class="form-select" name="seniorityInRecentWork" required>
             <option value="02">וותק בעבודה האחרונה</option>
             <option value="lessThanHaifYear">פחות מחצי שנה</option>
             <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -406,7 +406,7 @@ function notEmployee(){
 <div class="  col-lg-6 mb-3 " id="date">
     <!--    <label for="seniorityInWork" class="form-label">וותק בעבודה</label>-->
     <div class="input-group">
-        <select type="text" class="form-select" required >
+        <select type="text" class="form-select" name="lastWorkEndTime" required >
             <option value="02">זמן סיום עבודה אחרונה</option>
             <option value="lessThanHaifYear">פחות מחצי שנה</option>
             <option value="betweenHaifYearAndYear">בין חצי שנה לשנה</option>
@@ -420,7 +420,7 @@ function notEmployee(){
 <div class="  col-lg-6 mb-3" id="salary13" >
     <div class=" input-group" >
         <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
-        <input type="number" class="form-control" required  placeholder="משכורת חודשית בעבןדה האחרונה" pattern="[0-9]*" inputmode="numeric" id="monthlySalary3">
+        <input type="number" class="form-control" required name="monthlySalaryInLastJob" placeholder="משכורת חודשית בעבןדה האחרונה" pattern="[0-9]*" inputmode="numeric" id="monthlySalary3">
         <span class="input-group-text">₪</span>
     </div>
 </div>                       
@@ -431,7 +431,7 @@ function pensioner(){
     document.getElementById("aboutWork").innerHTML+=`<div class="row"><div class="  col-lg-6 mb-3" id="salary14" >
     <div class=" input-group" >
         <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
-        <input type="number" class="form-control" required  placeholder="גובה קיצבת הפנסיה" pattern="[0-9]*" inputmode="numeric" id="monthlySalary3">
+        <input type="number" class="form-control" required name="amountOfThePension" placeholder="גובה קיצבת הפנסיה" pattern="[0-9]*" inputmode="numeric" id="monthlySalary3">
         <span class="input-group-text">₪</span>
     </div>
 </div>
@@ -442,7 +442,7 @@ function receivesAnAnnuity() {
     document.getElementById("aboutWork").innerHTML += `<div class="row"><div class="  col-lg-6 mb-3" id="salary15" >
     <div class=" input-group" >
         <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
-        <input type="text" class="form-control" required  placeholder="גובה קיצבת " pattern="[0-9]*" inputmode="numeric" id="monthlySalary15">
+        <input type="text" class="form-control" required name="heightOfStipination"  placeholder="גובה קיצבה " pattern="[0-9]*" inputmode="numeric" id="monthlySalary15">
         <span class="input-group-text">₪</span>
     </div>
    </div>
@@ -453,7 +453,7 @@ function revealsTorahInstitution() {
     document.getElementById("aboutWork").innerHTML += `<div class="row"><br><div class="  col-lg-6 mb-3" id="salary16" >
           <div class=" input-group" >
         <!--    <label for="monthlySalary" class="form-label">משכורת חודשית</label>-->
-        <input type="text" class="form-control" required  placeholder="גובה מילגה " pattern="[0-9]*" inputmode="numeric" id="monthlySalary16">
+        <input type="text" class="form-control" required name="scholarshipAmount"  placeholder="גובה מילגה " pattern="[0-9]*" inputmode="numeric" id="monthlySalary16">
         <span class="input-group-text">₪</span>
        </div>
 </div></div>`
@@ -464,7 +464,7 @@ function addDetalis()
     document.getElementById("aboutWork").innerHTML +=`<div class=" row">
            <div class=" col-lg-6 mb-3 ">
               <div  class="  input-group ">
-                 <select type="text" class="form-select" id="theBank" required>
+                 <select type="text" class="form-select" name="theBank" id="theBank" required>
                     <option class="" value="0">הבנק בו מתנהל החשבון</option>
                     <option class="" value="1">שם הבנק</option>
                      <option class="" value="13">אגוד</option>
@@ -486,7 +486,7 @@ function addDetalis()
         </div>
         <div class=" col-lg-6 mb-3 ">
           <div  class="  input-group ">
-            <select type="text" class="form-select" id="accountStatus" required>
+            <select type="text" class="form-select"  name="accountStatus" id="accountStatus" required>
               <option class="" value="0">מצב חשבון ב3 חודשים האחרונים</option>
               <option class="" value="plus">פלוס</option>
               <option class="" value="minus">מינוס</option>

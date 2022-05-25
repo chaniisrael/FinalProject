@@ -74,10 +74,36 @@ exports.addEmail = (req, res, next) => {
 exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     console.log("ppppppppppppppppppppppp")
     console.log(req.body.name)
-    let name = req.body.name;
-    let date = req.body.date;
-    let education = req.body.education;
-    let theJob = req.body;
+    let ifThereComplexity = req.body.ifThereComplexity;//האם ידוע על מורכבות כלשהי
+    let propertyType = req.body.propertyType;//מהו סוג הנכס
+    let equity = req.body.equity;//מהו ההון עצמי
+    let valueOfTheConference = req.body.valueOfTheConference;//מהו שווי הנכס
+    let whereTheConference = req.body.whereTheConference;//באיזה ישוב נמצא הנכס שאתם רוכשים
+    let name = req.body.name;//שם הרוכש
+    let date = req.body.date;// תאריך לידה
+    let education = req.body.education;// השכלה
+    let theJob = req.body.theJob;// עבודה
+    let seniorityInWork = req.body.seniorityInWork;//וותק בתפקיד
+    let monthlySalary = req.body.monthlySalary;// משכורת חודשית
+    let businessSeniority = req.body.businessSeniority;// וותק העסק
+    let averageMonthlyIncome = req.body.averageMonthlyIncome;// הכנסה חודשית ממוצעת
+    let seniorityInOffice = req.body.seniorityInOffice;// וותק בתפקיד
+    let monthlySalary2 = req.body.monthlySalary2;// משכורת חודשית
+    let seniorityInRecentWork = req.body.seniorityInRecentWork;//וותק בעבודה האחרונה
+    let lastWorkEndTime = req.body.lastWorkEndTime;//זמן סיום עבודה אחרונה
+    let monthlySalaryInLastJob = req.body.monthlySalaryInLastJob;//משכורת חודשית בעבודה האחרונה
+    let amountOfThePension = req.body.amountOfThePension;//גובה קיצבת הפנסיה
+    let heightOfStipination = req.body.heightOfStipination;//גובה קיצבה
+    let scholarshipAmount = req.body.scholarshipAmount;//גובה מילגה
+    let theBank = req.body.theBank;// הבנק בו מתנהל החשבון
+    let accountStatus = req.body.accountStatus;//מצב חשבון ב3 חודשים אחרונים
+    let typeOfIncome = req.body.typeOfIncome;// סוג הכנסה
+    let monthlyIncomeLevel = req.body.monthlyIncomeLevel;//גובה הכנסה חודשית
+    let typeOfCommitment = req.body.typeOfCommitment;//סוג התחיבות
+    let monthlyPaymentAmount = req.body.monthlyPaymentAmount;//גובה תשלום חודשי
+    let problemType = req.body.problemType;//סוג בעיה
+    let problemOneLastTime = req.body.problemOneLastTime;//מתי היה בעיה בפעם האחרונה
+
 
 
     return  res.render('forms',{message90:req.body.date});
