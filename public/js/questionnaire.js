@@ -82,8 +82,16 @@ function PersonalInformation(i)
     <div class="text-danger errormessage "> </div>
     </div>
 <div class=" col-lg-6 mb-3 ">
-    <input placeholder="Select date" type="date" required max={2000} id="example" name="date" class="form-control picker__input">
-    <div class="text-danger errormessage "> </div>
+     <div class="  input-group ">
+    <select type="text" class="form-select" name="age" required>
+        <option value="00">גיל</option>
+        <option value="lessThan18">פחות מ-18</option>
+        <option value="between18And40">בין 18 ל-40</option>
+        <option value="between40And70">בין 40 ל- 70</option>
+        <option value="over70">מעל 70</option>
+    </select>
+        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+    </div>
 </div>
 
 <div class=" col-lg-6 mb-3 ">
@@ -252,7 +260,7 @@ function commitment(e) {
         document.getElementById("commit").innerHTML=`<div class="row" >
         <div class=" col-lg-6 mb-3 ">
            <div class="input-group">
-            <select type="text" class="form-select" name="typeOfCommitment" id="typeOfCommitment" required>
+            <select type="text" class="form-select" name="monthlyPaymentAmountOnCommitment" id="typeOfCommitment" required>
               <option class="">סוג התחיבות</option>
               <option class="" value="bankLoan">הלוואה בנקאית</option>
               <option class="" value="nonBankLoan">הלוואה חוץ בנקאית</option>
@@ -279,12 +287,12 @@ function pansyProblem(e) {
         document.getElementById("problem").innerHTML="";
     if(e.target.value==="yes1")
     {
-        document.getElementById("problem").innerHTML=`<div class="row"><div class=" col-lg-6 mb-3" >
+        document.getElementById("problem").innerHTML= `<div class="row"><div class=" col-lg-6 mb-3" >
           <div class="input-group">
             <select type="text" class="form-select" name="problemType" id="problemType" required>
               <option class="">סוג בעיה</option>
               <option  value="checks">שיקים ללא כיסוי</option>
-              <option value="loans">הלוואות בפיגור</option>
+              <option value="subordinatedLoans">הלוואות בפיגור</option>
               <option  value="execution">הוצאה לפועל</option>
               <option  value="limitedAccount">חשבון מוגבל</option>
            </select>

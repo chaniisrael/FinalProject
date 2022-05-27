@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector("#approve").addEventListener("click", login);
+    document.getElementById("my23").addEventListener("onsubmit", login);
     document.querySelector("#nextRegister").addEventListener("click", login2);
 
 }, false);
 
-function login(e) {
-    console.log('111');
-    e.preventDefault();
+function login(event) {
+    // debugger;
+    // console.log('111');
+    // event.preventDefault();
     let userName = document.getElementById('userName').value;
     let password = document.getElementById('password').value;
-
+  // let password=  document.getElementById('password').value=window.btoa(document.getElementById('password').value);
+    console.log(password);
+    console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
     //console.log(mail);
     fetch('/users/findUserName',{
         method:'post',
