@@ -1,32 +1,63 @@
-
-<!--<body>-->
-<!--<section id="contact" class="contact">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-8  form-group mb-3">-->
-<!--<div class="mb-3">-->
-<!--    <label for="question7" class="form-label">כמה אנשים משתתפים במשכנתא?</label>-->
-<!--    <input type="text" class="form-control" id="question7">-->
+<html>
+<!--<div class="form-group mb-3">-->
+<!--&lt;!&ndash;    <label for="question7" class="form-label">כמה אנשים משתתפים שמשכנתא?</label>&ndash;&gt;-->
+<!--    <select type="text" class="form-select" id="question7" onclick={question}>-->
+<!--        <option value="0">כמה אנשים משתתפים שמשכנתא?</option>-->
+<!--        <option name="I" value="1">אני</option>-->
+<!--        <option name="myPartnerAndI" value="2">אני ובן/ בת זוגי </option>-->
+<!--        <option name="iAndPartners" value="3">אני ושותפים</option>-->
+<!--    </select>-->
 <!--</div>-->
-<!--<form method="get" action="/questionRoute/question8" >-->
-
-<div class="form-group mb-3">
-<!--    <label for="question7" class="form-label">כמה אנשים משתתפים שמשכנתא?</label>-->
-    <select type="text" class="form-select" id="question7" onclick={question}>
-        <option value="0">כמה אנשים משתתפים שמשכנתא?</option>
-        <option name="I" value="1">אני</option>
-        <option name="myPartnerAndI" value="2">אני ובן/ בת זוגי </option>
-        <option name="iAndPartners" value="3">אני ושותפים</option>
-    </select>
+<div class="row">
+<div class=" col-lg-6 mb-3 ">
+    <input size="10" type="name" class="form-control" name="name" id="name"  placeholder="שם מלא" required>
+    <div class="text-danger errormessage "> </div>
 </div>
-<!--    <div class="text-center col-lg-10 mb-3 mt-md-3">-->
-<!--        <input type="submit" value="המשך" class="btn btn-outline-primary mb-3" id="next7" >-->
-<!--    </div>-->
-<!--</form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 
-<!--</body>-->
+<div class=" col-lg-6 mb-3 ">
+    <div class="  input-group ">
+        <select type="text" class="form-select" name="age" required >
+            <option value="00">גיל</option>
+            <option value="lessThan18">פחות מ-18</option>
+            <option value="between18And40">בין 18 ל-40</option>
+            <option value="between40And70">בין 40 ל- 70</option>
+            <option value="over70">מעל 70</option>
+        </select>
+        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+    </div>
+</div>
+
+<div class=" col-lg-6 mb-3 ">
+    <div class="  input-group ">
+        <select type="text" class="form-select" name="education" required>
+            <option value="00">השכלה</option>
+            <option value="withoutEducation">ללא השכלה</option>
+            <option value="highSchool">תיכונית</option>
+            <option value="higherEducation">על תיכונית</option>
+            <option value="vocationalTraining">הכשרה מקצועית</option>
+            <option value="practicalEngineer">הנדסאי</option>
+            <option value="degreeStudent">סטודנט תואר ראשון/שני/שלישי</option>
+            <option value="degreeAcademic">אקדמאי תואר ראשןן/שני/שלישי</option>
+        </select>
+        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+    </div>
+</div>
+
+<div class=" col-lg-6 mb-3  ">
+    <div class="  input-group ">
+        <select type="text" class="form-select job" name="theJob" id="employment" onclick={theJob} required>
+            <option value="01">תעסוקה</option>
+            <option value="employee">שכיר</option>
+            <option value="independent">עצמאי</option>
+            <option value="independentEndEmployee">שכיר ועצמאי</option>
+            <option value="controllingEmployee">שכיר בעל שליטה</option>
+            <option value="notEmployee">לא מועסק</option>
+            <option value="pensioner">פנסיונר</option>
+            <option value="receivesAnAnnuity">מקבל קיצבה</option>
+            <option value="revealsTorahInstitution">מלגה מוסד תורני</option>
+        </select>
+        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+    </div>
+</div>
+</div>
 </html>

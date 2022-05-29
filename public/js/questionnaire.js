@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("question7").addEventListener("click", question);
-    document.getElementById("employment").addEventListener("click", theJob);
+    // document.getElementById("question7").addEventListener("click", question);
+    // document.getElementById("employment").addEventListener("click", theJob);
     document.getElementById("form12").addEventListener("onsubmit", mysubmit);
+    let job = document.querySelectorAll('.job') // we check if were clicked on the delete button of a specific image.
+    for (let j = 0, len = job.length; j < len; j++) {
+        job[j].addEventListener('click', function () {
+            theJob(job[j].value,i)//שולחים לפונקציה שמוחקת את התמונה הזאת
+        });
+    }
 
 
 }, false);
@@ -18,131 +24,131 @@ function mysubmit(e)
 
 }
 
-function question (e)
-{
-    // if(e.target.value ===1 || e.target.value ===2 ||e.target.value ===2)
-    //     document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
-    document.getElementById("ss").innerHTML="";
-    document.getElementById("tt").innerHTML="";
-
-
-
-
-    i=0;
-    if(e.target.value ==1)
-    {
-        i+=1;
-        PersonalInformation(i)
-
-
-        //document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
-
-    }
-
-
-    //     if(e.target.value ==2)
-    // {
-    //     i+=1;
-    //     PersonalInformation(i)
-    //     i+=1;
-    //     PersonalInformation(i)
-    //
-    // }
-    //  if(e.target.value ==3)
-    // {
-    //     i+=1;
-    //     PersonalInformation(i);
-    //     i+=1;
-    //     PersonalInformation(i)
-    //
-    //     document.getElementById("tt").innerHTML+=`<div><button type="button" id="buttonPlos">+</button> </div>`
-    //     document.getElementById("buttonPlos").addEventListener("click", buttonPlos);
-    //
-    //
-    // }
-    // document.getElementById().rem
-    // let clearImage = document.querySelectorAll('addJob') // we check if were clicked on the delete button of a specific image.
-    // for (let i = 0, len = clearImage.length; i < len; i++) {
-    //     clearImage[i].addEventListener('click', function () {
-    //         theJob(clearImage[i])//שולחים לפונקציה שמוחקת את התמונה הזאת
-    //     });
-    // }
-
-    console.log(e.target.value);
-}
-//---------------------------------------------------------------
-function PersonalInformation(i)
-{
-
-   // document.getElementById("jj").innerHTML+=document.getElementById("personalInformation").innerHTML
-    document.getElementById("ss").innerHTML+=`<div class="row mb-4" id="${i}"><div>${i}.</div>
-   <br/> 
-    <div class=" col-lg-6 mb-3 ">
-    <input size="10" type="name" class="form-control" name="name" id="name${i}"  placeholder="שם מלא" required>
-    <div class="text-danger errormessage "> </div>
-    </div>
-<div class=" col-lg-6 mb-3 ">
-     <div class="  input-group ">
-    <select type="text" class="form-select" name="age" required>
-        <option value="00">גיל</option>
-        <option value="lessThan18">פחות מ-18</option>
-        <option value="between18And40">בין 18 ל-40</option>
-        <option value="between40And70">בין 40 ל- 70</option>
-        <option value="over70">מעל 70</option>
-    </select>
-        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
-    </div>
-</div>
-
-<div class=" col-lg-6 mb-3 ">
-    <div class="  input-group ">
-    <select type="text" class="form-select" name="education" required>
-        <option value="00">השכלה</option>
-        <option value="withoutEducation">ללא השכלה</option>
-        <option value="highSchool">תיכונית</option>
-        <option value="higherEducation">על תיכונית</option>
-        <option value="vocationalTraining">הכשרה מקצועית</option>
-        <option value="practicalEngineer">הנדסאי</option>
-        <option value="degreeStudent">סטודנט תואר ראשון/שני/שלישי</option>
-        <option value="degreeAcademic">אקדמאי תואר ראשןן/שני/שלישי</option>
-    </select>
-        <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
-    </div>
-</div>
-
-<div class=" col-lg-6 mb-3  ">
-    <div class="  input-group ">
-<select type="text" class="form-select job" name="theJob" required>
-    <option value="01">תעסוקה</option>
-    <option value="employee">שכיר</option>
-    <option value="independent">עצמאי</option>
-    <option value="independentEndEmployee">שכיר ועצמאי</option>
-    <option value="controllingEmployee">שכיר בעל שליטה</option>
-    <option value="notEmployee">לא מועסק</option>
-    <option value="pensioner">פנסיונר</option>
-    <option value="receivesAnAnnuity">מקבל קיצבה</option>
-    <option value="revealsTorahInstitution">מלגה מוסד תורני</option>
-</select>
-    <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
-    </div>
-</div></div>`
-    // console.log(document.getElementById("name"+"${i}").value,"bbbbb")
-
-    let job = document.querySelectorAll('.job') // we check if were clicked on the delete button of a specific image.
-    for (let j = 0, len = job.length; j < len; j++) {
-        job[j].addEventListener('click', function () {
-            theJob(job[j].value,i)//שולחים לפונקציה שמוחקת את התמונה הזאת
-        });
-    }
-}
-//-------------------------------------------------
-function buttonPlos(e)
-{
-    i+=1;
-    PersonalInformation(i)
-}
+// function question (e)
+// {
+//     // if(e.target.value ===1 || e.target.value ===2 ||e.target.value ===2)
+//     //     document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
+//     document.getElementById("ss").innerHTML="";
+//     document.getElementById("tt").innerHTML="";
+//
+//
+//
+//
+//     i=0;
+//     if(e.target.value ==1)
+//     {
+//         i+=1;
+//         PersonalInformation(i)
+//
+//
+//         //document.getElementById("aboutWork").innerHTML+=document.getElementById("salary").innerHTML
+//
+//     }
+//
+//
+//     //     if(e.target.value ==2)
+//     // {
+//     //     i+=1;
+//     //     PersonalInformation(i)
+//     //     i+=1;
+//     //     PersonalInformation(i)
+//     //
+//     // }
+//     //  if(e.target.value ==3)
+//     // {
+//     //     i+=1;
+//     //     PersonalInformation(i);
+//     //     i+=1;
+//     //     PersonalInformation(i)
+//     //
+//     //     document.getElementById("tt").innerHTML+=`<div><button type="button" id="buttonPlos">+</button> </div>`
+//     //     document.getElementById("buttonPlos").addEventListener("click", buttonPlos);
+//     //
+//     //
+//     // }
+//     // document.getElementById().rem
+//     // let clearImage = document.querySelectorAll('addJob') // we check if were clicked on the delete button of a specific image.
+//     // for (let i = 0, len = clearImage.length; i < len; i++) {
+//     //     clearImage[i].addEventListener('click', function () {
+//     //         theJob(clearImage[i])//שולחים לפונקציה שמוחקת את התמונה הזאת
+//     //     });
+//     // }
+//
+//     console.log(e.target.value);
+// }
+// //---------------------------------------------------------------
+// function PersonalInformation(i)
+// {
+//
+//    // document.getElementById("jj").innerHTML+=document.getElementById("personalInformation").innerHTML
+//     document.getElementById("ss").innerHTML+=`<div class="row mb-4" id="${i}"><div>${i}.</div>
+//    <br/>
+//     <div class=" col-lg-6 mb-3 ">
+//     <input size="10" type="name" class="form-control" name="name" id="name${i}"  placeholder="שם מלא" required>
+//     <div class="text-danger errormessage "> </div>
+//     </div>
+// <div class=" col-lg-6 mb-3 ">
+//      <div class="  input-group ">
+//     <select type="text" class="form-select" name="age" required>
+//         <option value="00">גיל</option>
+//         <option value="lessThan18">פחות מ-18</option>
+//         <option value="between18And40">בין 18 ל-40</option>
+//         <option value="between40And70">בין 40 ל- 70</option>
+//         <option value="over70">מעל 70</option>
+//     </select>
+//         <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+//     </div>
+// </div>
+//
+// <div class=" col-lg-6 mb-3 ">
+//     <div class="  input-group ">
+//     <select type="text" class="form-select" name="education" required>
+//         <option value="00">השכלה</option>
+//         <option value="withoutEducation">ללא השכלה</option>
+//         <option value="highSchool">תיכונית</option>
+//         <option value="higherEducation">על תיכונית</option>
+//         <option value="vocationalTraining">הכשרה מקצועית</option>
+//         <option value="practicalEngineer">הנדסאי</option>
+//         <option value="degreeStudent">סטודנט תואר ראשון/שני/שלישי</option>
+//         <option value="degreeAcademic">אקדמאי תואר ראשןן/שני/שלישי</option>
+//     </select>
+//         <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+//     </div>
+// </div>
+//
+// <div class=" col-lg-6 mb-3  ">
+//     <div class="  input-group ">
+// <select type="text" class="form-select job" name="theJob" required>
+//     <option value="01">תעסוקה</option>
+//     <option value="employee">שכיר</option>
+//     <option value="independent">עצמאי</option>
+//     <option value="independentEndEmployee">שכיר ועצמאי</option>
+//     <option value="controllingEmployee">שכיר בעל שליטה</option>
+//     <option value="notEmployee">לא מועסק</option>
+//     <option value="pensioner">פנסיונר</option>
+//     <option value="receivesAnAnnuity">מקבל קיצבה</option>
+//     <option value="revealsTorahInstitution">מלגה מוסד תורני</option>
+// </select>
+//     <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
+//     </div>
+// </div></div>`
+//     // console.log(document.getElementById("name"+"${i}").value,"bbbbb")
+//
+//     let job = document.querySelectorAll('.job') // we check if were clicked on the delete button of a specific image.
+//     for (let j = 0, len = job.length; j < len; j++) {
+//         job[j].addEventListener('click', function () {
+//             theJob(job[j].value,i)//שולחים לפונקציה שמוחקת את התמונה הזאת
+//         });
+//     }
+// }
+// //-------------------------------------------------
+// function buttonPlos(e)
+// {
+//     i+=1;
+//     PersonalInformation(i)
+// }
 //------------------------------------------------
-function theJob(e,i) {
+function theJob(e) {
 console.log("qqqqqqqq" ,e)
     document.getElementById("aboutWork").innerHTML =" "
     document.getElementById("aboutWork222").classList.add("d-none");

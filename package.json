@@ -23,6 +23,7 @@
   "devDependencies": {
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
+    "cryptr": "^6.0.3",
     "express-session": "^1.17.2"
   }
 }

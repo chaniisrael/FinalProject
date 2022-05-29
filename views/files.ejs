@@ -1,38 +1,101 @@
 <%- include('./include/begin.ejs') %>
-<div class="mt-3">
-    <h1>:להשלמת הבקשה יש לצרף את המסמכים הבאים </h1>
+<head>
+    <style>
+        .card {
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+            display: flex;
+            text-align: center;
+            width: 100%;
+            /*max-width: 90rem;*/
 
+        }
+        input[type=submit] {
+            width: 15%;
+            /*background-color: #4CAF50;*/
+            /*color: white;*/
+            padding: 2px 20px;
+            /*margin: 8px 0;*/
+            /*border: none;*/
+            /*border-radius: 4px;*/
+            /*cursor: pointer;*/
+        }
+        input[type=file] {
+        width: 2%;
+            /*background-color: #4CAF50;*/
+            /*color: white;*/
+            padding: 5px 5px;
+            /*margin: 8px 0;*/
+            /*border: none;*/
+            /*border-radius: 4px;*/
+            /*cursor: pointer;*/
+        }
+
+
+
+
+    </style>
+</head>
+<section id="contact" class="contact">
+    <div class="container">
+<div class="mt-3">
+    <h3 dir="rtl" class=" d-flex justify-end">להשלמת הבקשה יש לצרף את המסמכים הבאים: </h3>
+    <div class="fst-italic row d-flex justify-content-end">
+
+    <div dir="rtl" class="card " style="max-width: 50rem;">
+        <br>
 <form method="post" enctype="multipart/form-data" action="/api/saveFiles" id="myFiles">
-    <h3>ריכוז יתרות עדכני מחשבון הבנק בו מתנהל חשבונכם</h3>
-        <div class="input-group">
-            <label for="formFile" class="form-label">ריכוז יתרות</label>
+<!--    <h3>ריכוז יתרות עדכני מחשבון הבנק בו מתנהל חשבונכם</h3>-->
+         <h6 dir="rtl" class=" d-flex justify-end" >ריכוז יתרות:</h6>
+        <div class="input-group fst-italic  d-flex justify-content-end">
+            <label for="formFile" class="form-label d-flex justify-content-end"></label>
             <input class="form-control" id = "myFiles" name = "myFiles" type="file" multiple>
         </div>
-        <button class="submit-btn" type='submit'>העלה קובץ</button>
+    <div class=" d-flex justify-end mt-md-3">
+        <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
+    </div>
+<!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
     </form>
+
     <form method="post" enctype="multipart/form-data" action="/api/saveFiles1" id="myFiles">
-        <h3>פרוט הלוואות </h3>
-        <div class="input-group">
-            <label for="formFile" class="form-label">פרוט הלוואות</label>
+
+        <h6 dir="rtl" class=" d-flex justify-end" >פרוט הלוואות:</h6>
+        <div class="input-group fst-italic  d-flex justify-content-end">
+            <label for="formFile" class="form-label"></label>
             <input class="form-control" id = "myFiles1" name = "myFiles1" type="file" multiple>
         </div>
-        <button class="submit-btn" type='submit'>העלה קובץ</button>
+        <div class=" d-flex justify-end mt-md-3">
+            <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
+        </div>
+<!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
     </form>
+
     <form method="post" enctype="multipart/form-data" action="/api/saveFiles11" id="myFiles11">
-        <h3>עובר ושב</h3>
+        <h6 dir="rtl" class=" d-flex justify-end" >עובר ושב:</h6>
         <div class="input-group">
-            <label for="formFile" class="form-label">עובר ושב</label>
+            <label for="formFile" class="form-label"></label>
             <input class="form-control" id = "myFiles11" name = "myFiles11" type="file" multiple>
         </div>
-        <button class="submit-btn" type='submit'>העלה קובץ</button>
+        <div class=" d-flex justify-end mt-md-3">
+            <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
+        </div>
+<!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
     </form>
+
     <form method="post" enctype="multipart/form-data" action="/api/saveFiles111" id="myFiles111">
-        <h3>תלוש שכר</h3>
+        <h6 dir="rtl" class=" d-flex justify-end" >תלוש שכר:</h6>
         <div class="input-group">
-            <label for="formFile" class="form-label">תלוש שכר</label>
+            <label for="formFile" class="form-label"></label>
             <input class="form-control" id = "myFiles111" name = "myFiles111" type="file" multiple>
         </div>
-        <button class="submit-btn" type='submit'>העלה קובץ</button>
+        <div class=" d-flex justify-end mt-md-3">
+            <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
+        </div>
+<!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
     </form>
+    </div>
+        <br>
 </div>
+</div>
+        </div>
+</section>
     <%- include('./include/end.ejs') %>

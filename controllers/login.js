@@ -1,6 +1,8 @@
 const db = require('../models'); //contain the Contact model, which is accessible via db.Contact
-let atob = require('atob');
+
 exports.findUserName = (req, res, next) => {
+
+    console.log(req.body.password);
     // req.body.password=window.atob(req.body.password);
     //  req.body.password= atob(req.body.password);
     console.log(req.body.password);
@@ -86,8 +88,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     let constructionAnomalies = false;//יש בנכס הנרכש חריגות בניה
     let vacationApartment = false;//אנו רוכשים דירת נופש
     let NotPurchasedFromContractorEndNoForm4 = false;//הנכס לא נירכש מקבלן ואין לו טופס 4
-    let purchaseInTrust = false;
-    ;//אנו עושים רכישה בנאמנות
+    let purchaseInTrust = false;//אנו עושים רכישה בנאמנות
     let theRightsSettlementProcessHasNotBeenCompleted = false;//תהליך הסדרת זכויות לא הושלם
     let buyersReceivers = false;//אנו רוכשים מכונס נכסים
 
@@ -217,24 +218,24 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //-------------------------------------------------------------------
     function Age(age) {
-        let lessThan18 = false;
-        let between18And40 = false;
-        let between40And70 = false;
-        let over70 = false;
+        let ageLessThan18 = false;
+        let ageBetween18And40 = false;
+        let ageBetween40And70 = false;
+        let ageOver70 = false;
 
         switch (age) {
 
             case "lessThan18":
-                lessThan18 = true;//פחות 18
+                ageLessThan18 = true;//פחות 18
                 break;
             case "between18And40":
-                between18And40 = true//בין 18 ל40
+                ageBetween18And40 = true//בין 18 ל40
                 break;
             case "between40And70":
-                between40And70 = true;//בין 40 ל70
+                ageBetween40And70 = true;//בין 40 ל70
                 break;
             case "over70":
-                over70 = true;//מעל 70
+                ageOver70 = true;//מעל 70
                 break;
             default:
         }
@@ -325,3 +326,26 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         }
     }
 }
+// node_modules\.bin\sequelize model:generate --name questionnaire --attributes email:string,constructionAnomalies:bool,vacati
+// onApartment:bool,NotPurchasedFromContractorEndNoForm4:bool,purchaseInTrust:bool,theRightsSettlementProcessHasNotBeenCompleted:bool,buyersReceivers:bool,rtmentFromC
+// PR:bool,apartmentPricePeroccupant:bool,secondHandApartment:bool,privateHouse:bool,SelfBuiltHouse:bool,field:bool,equity:string,valueOfTheConference:string,centerAr
+// ea:bool,northRegionArea:bool,southernArea:bool,name:string,ageLessThan18:bool,ageBetween18And40:bool,ageBetween40And70:bool,ageOver70:bool,education:string,employe
+// e:bool,independent:bool,notEmployee:bool,seniorityInWork:string,businessSeniority:string,seniorityInOffice:string,seniorityInRecentWork:string,lastWorkEndTime:stri
+// ng,averageMonthlyIncome:string,theBank:string,plus:bool,deviation:bool,typeOfIncome:string,typeOfCommitment:string,checks:bool,subordinatedLoans:bool,execution:boo
+// l,limitedAccount:bool,lessThanHaifYear:bool,betweenHaifYearAndYear:bool,betweenOnYearAndThreeYears:bool,OverHisYears:bool
+
+
+// node_modules\.bin\sequelize model:generate --name questionnaire --attributes email:string,constructionAnomalies:string,vacati
+// onApartment:string,NotPurchasedFromContractorEndNoForm4:string,purchaseInTrust:string,theRightsSettlementProcessHasNotBeenCompleted:string,buyersReceivers:string,rtmentFromC
+// PR:string,apartmentPricePeroccupant:string,secondHandApartment:string,privateHouse:string,SelfBuiltHouse:string,field:string,equity:string,valueOfTheConference:string,centerAr
+// ea:string,northRegionArea:string,southernArea:string,name:string,ageLessThan18:string,ageBetween18And40:string,ageBetween40And70:string,ageOver70:string,education:string,employe
+// e:string,independent:string,notEmployee:string,seniorityInWork:string,businessSeniority:string,seniorityInOffice:string,seniorityInRecentWork:string,lastWorkEndTime:stri
+// ng,averageMonthlyIncome:string,theBank:string,plus:string,deviation:string,typeOfIncome:string,typeOfCommitment:string,checks:string,subordinatedLoans:string,execution:string
+// ,limitedAccount:string,lessThanHaifYear:string,betweenHaifYearAndYear:string,betweenOnYearAndThreeYears:string,OverHisYears:string
+
+// node_modules/.bin/sequelize model:generate --name asset --attributes email:string,constructionAnomalies:boolean,vacationApartment:boolean,NotPurchasedFromContractorEndNoForm4:boolean,purchaseInTrust:boolean,theRightsSettlementProcessHasNotBeenCompleted:boolean,buyersReceivers:boolean,rtmentFromCPR:boolean,apartmentPricePeroccupant:boolean,secondHandApartment:boolean,privateHouse:boolean,SelfBuiltHouse:boolean,field:boolean,equity:string,valueOfTheConference:string,centerArea:boolean,northRegionArea:boolean,southernArea:boolean
+
+ // node_modules/.bin/sequelize model:generate --name PersonalDetails --attributes email:string,name:string,ageLessThan18:boolean,ageBetween18And40:boolean,ageBetween40And70:boolean,ageOver70:boolean,education:string,employee:boolean,independent:boolean,notEmployee:boolean
+
+
+// node_modules/.bin/sequelize model:generate --name WorkDetails --attributes email:string,seniorityInWork:string,businessSeniority:string,seniorityInOffice:string,seniorityInRecentWork:string,lastWorkEndTime:string,averageMonthlyIncome:string,theBank:string,plus:boolean,deviation:boolean,typeOfIncome:string,typeOfCommitment:string,checks:boolean,subordinatedLoans:boolean,execution:boolean,limitedAccount:boolean,lessThanHaifYear:boolean,betweenHaifYearAndYear:boolean,betweenOnYearAndThreeYears:boolean,OverHisYears:boolean

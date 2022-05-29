@@ -1,3 +1,5 @@
+let Cryptr = require('cryptr');
+cryptr = new Cryptr('chani');
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("my23").addEventListener("onsubmit", login);
     document.querySelector("#nextRegister").addEventListener("click", login2);
@@ -5,13 +7,21 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 function login(event) {
-    // debugger;
+    debugger;
     // console.log('111');
     // event.preventDefault();
+    let password1 = cryptr.encrypt("nk")
+    console.log(password1);
+     password1 = cryptr.decrypt(password1)
+    console.log(password1)
     let userName = document.getElementById('userName').value;
-    let password = document.getElementById('password').value;
-  // let password=  document.getElementById('password').value=window.btoa(document.getElementById('password').value);
+    // let password = document.getElementById('password').value;
+     let password=  document.getElementById('password').value=window.btoa(document.getElementById('password').value);
+
     console.log(password);
+    // password=  document.getElementById('password').value=window.atob(document.getElementById('password').value);
+    // console.log(password);
+
     console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
     //console.log(mail);
     fetch('/users/findUserName',{
