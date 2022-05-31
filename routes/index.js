@@ -39,6 +39,14 @@ router.get('/files', function(req, res, next) {
 router.post('/files', function(req, res, next) {
   res.render('files');
 });
+router.get('/loginBank', function(req, res, next) {
+  res.render('loginBank');
+});
+router.post('/loginBank', function(req, res, next) {
+  res.render('loginBank');
+});
+
+
 
 
 // router.get('/register', function(req, res, next) {

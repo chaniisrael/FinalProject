@@ -3,11 +3,8 @@ const db = require('../models'); //contain the Contact model, which is accessibl
 exports.findUserName = (req, res, next) => {
 
     console.log(req.body.password);
-    // req.body.password=window.atob(req.body.password);
-    //  req.body.password= atob(req.body.password);
-    console.log(req.body.password);
-    // console.log("חני")
-    // console.log('find '+req.body.mail);
+
+
     db.Users.findAll({where: {userName: req.body.userName, password: req.body.password}})
         .then((result) => {
             // console.log(result+"jbh")
@@ -76,58 +73,141 @@ exports.addEmail = (req, res, next) => {
 exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     console.log("ppppppppppppppppppppppp")
     console.log(req.body.name)
-    //let ifThereComplexity = req.body.ifThereComplexity;//האם ידוע על מורכבות כלשהי
-    // let propertyType = req.body.propertyType;;//מהו סוג הנכס
-    // let propertyAreaYouPurchasing = req.body.propertyAreaYouPurchasing;//באיזה ישוב נמצא הנכס שאתם רוכשים
-    // let age = req.body.age;//  גיל (תאריך לידה
-    //let accountStatus = req.body.accountStatus;//מצב חשבון ב3 חודשים אחרונים
-    // let problemType = req.body.problemType;//סוג בעיה
-    // let problemOneLastTime = req.body.problemOneLastTime;//מתי היה בעיה בפעם האחרונה
-    debugger;
-    // משתנים לפונקציות
+
+    // אם ידוע על מורכבות כךשהח משתנים לפונקציות
     let constructionAnomalies = false;//יש בנכס הנרכש חריגות בניה
     let vacationApartment = false;//אנו רוכשים דירת נופש
     let NotPurchasedFromContractorEndNoForm4 = false;//הנכס לא נירכש מקבלן ואין לו טופס 4
     let purchaseInTrust = false;//אנו עושים רכישה בנאמנות
     let theRightsSettlementProcessHasNotBeenCompleted = false;//תהליך הסדרת זכויות לא הושלם
     let buyersReceivers = false;//אנו רוכשים מכונס נכסים
-
     IfThereComplexity(req.body.ifThereComplexity);//האם ידוע על מורכבות כלשהי
 
+// משתנים לפונקציה מה סוג הנכס
+    let rtmentFromCPR = false;//דירה מקבלן
+    let apartmentPricePeroccupant = false;//ירה מחיר למשתכן
+    let secondHandApartment = false;//דירה יד שניה
+    let privateHouse = false;//בית פרטי
+    let SelfBuiltHouse = false;//בית בבניה עצמית
+    let field = false;//מגרש
+     PropertyType(req.body.propertyType);//מהו סוג הנכס
 
-    console.log(constructionAnomalies);
-    PropertyType(req.body.propertyType);//מהו סוג הנכס
     let equity = req.body.equity;//מהו ההון עצמי
     let valueOfTheConference = req.body.valueOfTheConference;//מהו שווי הנכס
-    PropertyAreaYouPurchasing(req.body.propertyAreaYouPurchasing);//באיזה ישוב נמצא הנכס שאתם רוכשים
-    let name = req.body.name;//שם הרוכש
-    Age(req.body.age);//  גיל (תאריך לידה
-    let education = req.body.education;// השכלה
-    TheJob(req.body.theJob);//עבודה
-    // let theJob = req.body.theJob;// עבודה
-    let seniorityInWork = req.body.seniorityInWork;//וותק בתפקיד
-    let monthlySalary = req.body.monthlySalary;// משכורת חודשית
-    let businessSeniority = req.body.businessSeniority;// וותק העסק
-    let averageMonthlyIncome = req.body.averageMonthlyIncome;// הכנסה חודשית ממוצעת
-    let seniorityInOffice = req.body.seniorityInOffice;// וותק בתפקיד
-    let monthlySalary2 = req.body.monthlySalary2;// משכורת חודשית
-    let seniorityInRecentWork = req.body.seniorityInRecentWork;//וותק בעבודה האחרונה
-    let lastWorkEndTime = req.body.lastWorkEndTime;//זמן סיום עבודה אחרונה
-    let monthlySalaryInLastJob = req.body.monthlySalaryInLastJob;//משכורת חודשית בעבודה האחרונה
-    let amountOfThePension = req.body.amountOfThePension;//גובה קיצבת הפנסיה
-    let heightOfStipination = req.body.heightOfStipination;//גובה קיצבה
-    let scholarshipAmount = req.body.scholarshipAmount;//גובה מילגה
-    let theBank = req.body.theBank;// הבנק בו מתנהל החשבון
-    AccountStatus(req.body.accountStatus);//מצב חשבון ב3 חודשים אחרונים
-    let typeOfIncome = req.body.typeOfIncome;// סוג הכנסה
-    let monthlyIncomeLevel = req.body.monthlyIncomeLevel;//גובה הכנסה חודשית
-    let typeOfCommitment = req.body.typeOfCommitment;//סוג התחיבות
-    let monthlyPaymentAmountOnCommitment = req.body.monthlyPaymentAmountOnCommitment;//גובה תשלום חודשי
-    ProblemType(req.body.problemType)//סוג בעיה
-    ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
+
+    //משתנים באיזה אזור נמצא הנכס
+    let centerArea = false;
+    let northRegionArea = false;
+    let southernArea = false;
+     PropertyAreaYouPurchasing(req.body.propertyAreaYouPurchasing);//באיזה ישוב נמצא הנכס שאתם רוכשים
+
+    db.asset.create({
+        constructionAnomalies: constructionAnomalies, vacationApartment: vacationApartment, NotPurchasedFromContractorEndNoForm4: NotPurchasedFromContractorEndNoForm4,
+        purchaseInTrust: purchaseInTrust, theRightsSettlementProcessHasNotBeenCompleted: theRightsSettlementProcessHasNotBeenCompleted, buyersReceivers: buyersReceivers,
+        rtmentFromCPR:rtmentFromCPR, apartmentPricePeroccupant:apartmentPricePeroccupant, secondHandApartment:secondHandApartment, privateHouse:privateHouse, SelfBuiltHouse:SelfBuiltHouse,
+        field:field, equity:equity, valueOfTheConference:valueOfTheConference, centerArea:centerArea, northRegionArea:northRegionArea, southernArea:southernArea
+    })
+        .then((result) => {
+            return res.render('login', {message2: "ההרשמה בוצע בהצלחה"});
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+     let name = req.body.name;//שם הרוכש
+
+    //משתנים של גיל
+    let ageLessThan18 = false;
+    let ageBetween18And40 = false;
+    let ageBetween40And70 = false;
+    let ageOver70 = false;
+     Age(req.body.age);//  גיל (תאריך לידה
+
+     let education = req.body.education;// השכלה
+
+    //משתנים של סוג עבודה
+    let employee = false;
+    let independent = false;
+    let notEmployee = false;
+     TheJob(req.body.theJob);//עבודה
+
+    db.PersonalDetails.create({
+        name:name, ageLessThan18:ageLessThan18, ageBetween18And40:ageBetween18And40, ageBetween40And70:ageBetween40And70, ageOver70:ageOver70,
+        education:education, employee:employee, independent:independent, notEmployee:notEmployee
+    })
+        .then((result) => {
+            // return res.render('login', {message2: "ההרשמה בוצע בהצלחה"});
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+     let seniorityInWork = req.body.seniorityInWork;//וותק בתפקיד
+    // let monthlySalary = req.body.monthlySalary;// משכורת חודשית
+     let businessSeniority = req.body.businessSeniority;// וותק העסק
+    // let averageMonthlyIncome = req.body.averageMonthlyIncome;// הכנסה חודשית ממוצעת
+     let seniorityInOffice = req.body.seniorityInOffice;// וותק בתפקיד
+    // let monthlySalary2 = req.body.monthlySalary2;// משכורת חודשית
+     let seniorityInRecentWork = req.body.seniorityInRecentWork;//וותק בעבודה האחרונה
+     let lastWorkEndTime = req.body.lastWorkEndTime;//זמן סיום עבודה אחרונה
+    // let monthlySalaryInLastJob = req.body.monthlySalaryInLastJob;//משכורת חודשית בעבודה האחרונה
+    // let amountOfThePension = req.body.amountOfThePension;//גובה קיצבת הפנסיה
+    // let heightOfStipination = req.body.heightOfStipination;//גובה קיצבה
+    // let scholarshipAmount = req.body.scholarshipAmount;//גובה מילגה
+    let averageMonthlyIncome = req.body.monthlySalaryInLastJob + req.body.amountOfThePension + req.body.heightOfStipination +
+        req.body.scholarshipAmount + req.body.monthlyIncomeLevel - req.body.monthlyPaymentAmountOnCommitment;
+     let theBank = req.body.theBank;// הבנק בו מתנהל החשבון
+
+    //משתנים של מצב חשבון
+    let plus = false;
+    let deviation = false;
+     AccountStatus(req.body.accountStatus);//מצב חשבון ב3 חודשים אחרונים
+
+    let typeOfIncome = null;
+    let typeOfCommitment = null;
+    if(req.body.moreRevenue === 'yes1') {
+        typeOfIncome = req.body.typeOfIncome;// סוג הכנסה
+    }
+    if(req.body.commitment ==='yes1') {
+        // let monthlyIncomeLevel = req.body.monthlyIncomeLevel;//גובה הכנסה חודשית
+         typeOfCommitment = req.body.typeOfCommitment;//סוג התחיבות
+        // let monthlyPaymentAmountOnCommitment = req.body.monthlyPaymentAmountOnCommitment;//גובה תשלום חודשי
+    }
+
+    //סוג הבעיה
+    let checks = false;
+    let subordinatedLoans = false;
+    let execution = false;
+    let limitedAccount = false;
+    if(req.body.pansyProblem === 'yes1') {
+        ProblemType(req.body.problemType)//סוג בעיה
+    }
+
+    // מתי היה בעיה בפעם האחרונה
+    let lessThanHaifYear = false;
+    let betweenHaifYearAndYear = false;
+    let betweenOnYearAndThreeYears = false;
+    let OverHisYears = false;
+    if(req.body.pansyProblem === 'yes1') {
+        ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
+    }
+    db.WorkDetails.create({
+        seniorityInWork:seniorityInWork, businessSeniority:businessSeniority, seniorityInOffice:seniorityInOffice, seniorityInRecentWork:seniorityInRecentWork,
+        lastWorkEndTime:lastWorkEndTime, averageMonthlyIncome:averageMonthlyIncome, theBank:theBank, plus:plus, deviation:deviation,
+        typeOfIncome:typeOfIncome,typeOfCommitment:typeOfCommitment, checks:checks, subordinatedLoans:subordinatedLoans,
+        execution:execution, limitedAccount:limitedAccount, lessThanHaifYear:lessThanHaifYear, betweenHaifYearAndYear:betweenHaifYearAndYear,
+        betweenOnYearAndThreeYears:betweenOnYearAndThreeYears, OverHisYears:OverHisYears
+    })
+        .then((result) => {
+            // return res.render('login', {message2: "ההרשמה בוצע בהצלחה"});
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
 
 
-    return res.render('forms', {message90: constructionAnomalies});
+    return res.render('forms', {message90: req.body.ifThereComplexity});
 
     // let name=req.body.name;
     // console.log(name);
@@ -165,12 +245,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //-------------------------------------------------------------
     function PropertyType(propertyType) {
-        let rtmentFromCPR = false;//דירה מקבלן
-        let apartmentPricePeroccupant = false;//ירה מחיר למשתכן
-        let secondHandApartment = false;//דירה יד שניה
-        let privateHouse = false;//בית פרטי
-        let SelfBuiltHouse = false;//בית בבניה עצמית
-        let field = false;//מגרש
+
         switch (propertyType) {
 
             case "1":
@@ -198,9 +273,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //---------------------------------------------------------------------
     function PropertyAreaYouPurchasing(propertyAreaYouPurchasing) {
-        let centerArea = false;
-        let northRegionArea = false;
-        let southernArea = false;
+
         switch (propertyAreaYouPurchasing) {
 
             case "centerArea":
@@ -218,10 +291,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //-------------------------------------------------------------------
     function Age(age) {
-        let ageLessThan18 = false;
-        let ageBetween18And40 = false;
-        let ageBetween40And70 = false;
-        let ageOver70 = false;
+
 
         switch (age) {
 
@@ -243,9 +313,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //--------------------------------------------------------------------
     function TheJob(job) {
-        let employee = false;
-        let independent = false;
-        let notEmployee = false;
+
         switch (job) {
 
             case "employee":
@@ -264,8 +332,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //--------------------------------------------------------------
     function AccountStatus(accountStatus) {
-        let plus = false;
-        let deviation = false;
+
         switch (accountStatus) {
 
             case "plus":
@@ -304,10 +371,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //---------------------------------------------------------------------
     function ProblemOneLastTime(problemOneLastTime) {
-        let lessThanHaifYear = false;
-        let betweenHaifYearAndYear = false;
-        let betweenOnYearAndThreeYears = false;
-        let OverHisYears = false;
+
         switch (problemOneLastTime) {
 
             case "lessThanHaifYear":

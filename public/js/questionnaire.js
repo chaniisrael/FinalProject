@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // document.getElementById("question7").addEventListener("click", question);
     // document.getElementById("employment").addEventListener("click", theJob);
     document.getElementById("form12").addEventListener("onsubmit", mysubmit);
+
     let job = document.querySelectorAll('.job') // we check if were clicked on the delete button of a specific image.
     for (let j = 0, len = job.length; j < len; j++) {
         job[j].addEventListener('click', function () {
@@ -266,7 +267,7 @@ function commitment(e) {
         document.getElementById("commit").innerHTML=`<div class="row" >
         <div class=" col-lg-6 mb-3 ">
            <div class="input-group">
-            <select type="text" class="form-select" name="monthlyPaymentAmountOnCommitment" id="typeOfCommitment" required>
+            <select type="text" class="form-select" name="typeOfCommitment" id="typeOfCommitment" required>
               <option class="">סוג התחיבות</option>
               <option class="" value="bankLoan">הלוואה בנקאית</option>
               <option class="" value="nonBankLoan">הלוואה חוץ בנקאית</option>
@@ -513,7 +514,7 @@ function addDetalis()
        <div class=" mb-3" id="aboutRevenue">
          <div class=" col-lg-12 mb-3 " >
            <div class="input-group">
-              <select type="text" class="form-select " id="moreRevenue" required>
+              <select type="text" class="form-select " id="moreRevenue" name="moreRevenue" required>
                 <option value="02">האם יש הכנסות נוספות</option>
                 <option value="yes1">כן</option>
                 <option value="no">לא</option>
@@ -527,7 +528,7 @@ function addDetalis()
                                                                      
        <div class=" col-lg-12 mb-3 ">
          <div class="input-group">
-            <select type="text" class="form-select" id="commitment" required>
+            <select type="text" class="form-select" name="commitment" id="commitment" required>
                 <option value="02">האם יש התחיביות חודשיות ליותר מחצי שנה?</option>
                 <option value="yes1">כן</option>
                 <option value="no">לא</option>
@@ -545,7 +546,7 @@ function addDetalis()
 
     <div class=" col-lg-12 mb-3 ">
         <div class="input-group">
-            <select type="text" class="form-select" id="pansyProblem"  required>
+            <select type="text" class="form-select" name="pansyProblem" id="pansyProblem"  required>
                 <option value="02">האם היו בעיות בהתנהלות הפנססית?</option>
                 <option value="yes1">כן</option>
                 <option value="no">לא</option>

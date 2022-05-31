@@ -45,8 +45,8 @@ router.get('/password', function(req, res, next) {
 //     res.render('index');
 // });
 router.post('/forms',loginController.addingDetilsFromQuestionnaire)
-
-// req.body.password =btoa(req.body.password);
+// document.getElementById("password").value=btoa(document.getElementById("password").value)
+ // req.body.password =btoa(req.body.password);
 router.post('/save', loginController.addEmail);
 router.post('/findIfExit', loginController.findEmail);
 // router.post('/save', function(req, res, next) {
