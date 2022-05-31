@@ -28,6 +28,15 @@ router.get('/password', function(req, res, next) {
     res.redirect('/register');
 });
 //------------------------------------------------------------------------------
+router.post('/menuBank', function(req, res, next) {
+    console.log('hiiiii')
+    res.render('menuBank');
+});
+router.get('/menuBank', function(req, res, next) {
+    console.log('hiiiii')
+    res.render('menuBank');
+});
+
 // router.get('/forms', function(req, res, next) {
 //     req.session.name=req.body.name;
 //     console.log(req.session.name);

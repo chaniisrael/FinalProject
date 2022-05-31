@@ -13,12 +13,8 @@ router.post('/forms', function(req, res, next) {
 
     // res.render('question/question1');
 });
-router.get('/loginBank', function(req, res, next) {
-    res.render('loginBank');
-});
-router.post('/loginBank', function(req, res, next) {
-    res.render('loginBank');
-});
+
+
 // router.get('/question1', function(req, res, next) {
 //     console.log('hiiiii')
 //     res.render('question/question1');

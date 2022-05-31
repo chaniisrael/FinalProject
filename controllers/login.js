@@ -11,7 +11,7 @@ exports.findUserName = (req, res, next) => {
             if (result.length === 0)
                 return res.render('login', {message2: "השם משתמש או הסיסמה שגויים"});
             else
-                return res.render('menu-login', {message3: "ברוכה הבאה" + " " + req.body.userName});
+                return res.render('menuLogin', {message3: "ברוכה הבאה" + " " + req.body.userName});
             // return res.json('הינך רשום לאתר');
 
         })

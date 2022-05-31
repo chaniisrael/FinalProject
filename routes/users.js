@@ -8,6 +8,7 @@ const loginController = require('../controllers/login');
 // router.get('/', function(req, res, next) {
 //   res.render('index');
 // });
+// menuLogin.ejs
 router.post('/findEmail',loginController.findEmail);
 router.post('/findUserName',loginController.findUserName);
 module.exports = router;

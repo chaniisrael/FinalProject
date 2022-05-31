@@ -1,8 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', function () {
+    debugger;
      document.getElementById("formPassword").addEventListener("onsubmit", password);
-     // document.getElementById("my23").addEventListener("onsubmit", login);
-     // document.querySelector("#nextRegister").addEventListener("click", login2);
+     document.getElementById("my23").addEventListener("onsubmit", login);
+     document.querySelector("#nextRegister").addEventListener("click", login2);
 
 
 }, false);
