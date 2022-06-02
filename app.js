@@ -10,6 +10,8 @@ var indexRouter3 = require('./routes/register');
 var indexRouter2 = require('./routes/index');
 var usersRouter = require('./routes/users');
 var quesRouter = require('./routes/questions');
+var loginBankRouter = require('./routes/loginBank');
+var clientMainPageRouter = require('./routes/clientMainPage');
 const apiRoutes = require('./routes/api');
 
 
@@ -37,7 +39,8 @@ console.log("jj")
 app.use('/users', usersRouter);
 app.use('/questions', quesRouter);
 app.use('/api', apiRoutes);
-
+app.use('/loginBank',loginBankRouter);
+app.use('/clientMainPage',clientMainPageRouter);
 
 
 

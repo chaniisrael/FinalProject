@@ -11,4 +11,6 @@ const loginController = require('../controllers/login');
 // menuLogin.ejs
 router.post('/findEmail',loginController.findEmail);
 router.post('/findUserName',loginController.findUserName);
+router.post('/findUser',loginController.findUser);
+
 module.exports = router;

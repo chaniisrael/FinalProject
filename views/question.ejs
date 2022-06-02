@@ -1,4 +1,6 @@
 <%- include('./include/begin.ejs') %>
+<haed>
+
 <style>
     .card{
         box-shadow: 0 0 100px rgba(0,0,0,0.2);
@@ -14,14 +16,13 @@
         /*cursor: pointer;*/
     }
 </style>
-<haed>
     <script src="/js/questionnaire.js"></script>
 
 </haed>
 <body>
 <section id="contact" class="contact">
     <div class="container">
-        <form action="/register/forms" method="POST" class=" needs-validation novalidate myForm111" id="form12" required onsubmit="mysubmit(event);" >
+        <form action="/register/saveQuestionnaireData" method="POST" class=" needs-validation novalidate myForm111" id="form12" required onsubmit="mysubmit(event);" >
             <div  class="  fst-italic row d-flex justify-content-end mb-3 ">
                 <br><br>
                 <div class="card   row mb-3" style="max-width: 50rem;">

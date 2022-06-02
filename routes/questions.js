@@ -1,17 +1,13 @@
 var express = require('express');
 var router = express.Router();
 // const loginController = require('../colntrollers/login');
- console.log("chaniisrae")
 
 router.get('/forms', function(req, res, next) {
-    console.log('hiiiii')
      res.render('forms');
 });
 router.post('/forms', function(req, res, next) {
- console.log('hiiiii')
     res.render('forms');
 
-    // res.render('question/question1');
 });
 
 

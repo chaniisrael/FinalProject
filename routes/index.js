@@ -19,38 +19,8 @@ router.get('/login', function(req, res, next) {
 router.post('index', function(req, res, next) {
   res.render('index');
 });
-router.get('/question', function(req, res, next) {
-
-  res.render('question');
-});
-router.post('question', function(req, res, next) {
-  res.render('question');
-});
-router.get('/trackRequest', function(req, res, next) {
-  res.render('trackRequest');
-});
-router.post('/trackRequest', function(req, res, next) {
-  res.render('trackRequest');
-});
-router.get('/files', function(req, res, next) {
-  res.render('files');
-});
-
-router.post('/files', function(req, res, next) {
-  res.render('files');
-});
-router.get('/loginBank', function(req, res, next) {
-  res.render('loginBank');
-});
-router.post('/loginBank', function(req, res, next) {
-  res.render('loginBank');
-});
 
 
 
 
-// router.get('/register', function(req, res, next) {
-//
-//   res.redirect('/index');
-// });
 module.exports = router;
