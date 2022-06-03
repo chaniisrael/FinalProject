@@ -1,7 +1,6 @@
 const db = require("../models");
 exports.addingDetilsFromQuestionnaire = (req, res, next) => {
-    console.log("ppppppppppppppppppppppp")
-    console.log(req.body.name)
+
 
     // אם ידוע על מורכבות כךשהח משתנים לפונקציות
     let constructionAnomalies = false;//יש בנכס הנרכש חריגות בניה
@@ -31,7 +30,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     PropertyAreaYouPurchasing(req.body.propertyAreaYouPurchasing);//באיזה ישוב נמצא הנכס שאתם רוכשים
 
     db.asset.create({
-        constructionAnomalies: constructionAnomalies, vacationApartment: vacationApartment, NotPurchasedFromContractorEndNoForm4: NotPurchasedFromContractorEndNoForm4,
+        email:req.session.userName, rconstructionAnomalies: constructionAnomalies, vacationApartment: vacationApartment, NotPurchasedFromContractorEndNoForm4: NotPurchasedFromContractorEndNoForm4,
         purchaseInTrust: purchaseInTrust, theRightsSettlementProcessHasNotBeenCompleted: theRightsSettlementProcessHasNotBeenCompleted, buyersReceivers: buyersReceivers,
         rtmentFromCPR:rtmentFromCPR, apartmentPricePeroccupant:apartmentPricePeroccupant, secondHandApartment:secondHandApartment, privateHouse:privateHouse, SelfBuiltHouse:SelfBuiltHouse,
         field:field, equity:equity, valueOfTheConference:valueOfTheConference, centerArea:centerArea, northRegionArea:northRegionArea, southernArea:southernArea
@@ -61,7 +60,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     TheJob(req.body.theJob);//עבודה
 
     db.PersonalDetails.create({
-        name:name, ageLessThan18:ageLessThan18, ageBetween18And40:ageBetween18And40, ageBetween40And70:ageBetween40And70, ageOver70:ageOver70,
+        email:req.session.userName,name:name, ageLessThan18:ageLessThan18, ageBetween18And40:ageBetween18And40, ageBetween40And70:ageBetween40And70, ageOver70:ageOver70,
         education:education, employee:employee, independent:independent, notEmployee:notEmployee
     })
         .then((result) => {
@@ -121,7 +120,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
     }
     db.WorkDetails.create({
-        seniorityInWork:seniorityInWork, businessSeniority:businessSeniority, seniorityInOffice:seniorityInOffice, seniorityInRecentWork:seniorityInRecentWork,
+        email:req.session.userName,seniorityInWork:seniorityInWork, businessSeniority:businessSeniority, seniorityInOffice:seniorityInOffice, seniorityInRecentWork:seniorityInRecentWork,
         lastWorkEndTime:lastWorkEndTime, averageMonthlyIncome:averageMonthlyIncome, theBank:theBank, plus:plus, deviation:deviation,
         typeOfIncome:typeOfIncome,typeOfCommitment:typeOfCommitment, checks:checks, subordinatedLoans:subordinatedLoans,
         execution:execution, limitedAccount:limitedAccount, lessThanHaifYear:lessThanHaifYear, betweenHaifYearAndYear:betweenHaifYearAndYear,
@@ -137,11 +136,6 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 
     return res.render('forms', {message90: req.body.ifThereComplexity});
-
-    // let name=req.body.name;
-    // console.log(name);
-
-//-------------------------------------------------------------------
 
 //--------------------------------------------------------------------------
     function IfThereComplexity(ifThereComplexity) {

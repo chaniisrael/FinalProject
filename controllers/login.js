@@ -87,6 +87,24 @@ debugger;
 
 
 };
+
+exports.bank = (req, res, next) => {
+
+    debugger;
+    db.Banks.create({bankName: 'פאגי',password:'pagi12'})
+        .then((result) => {
+            console.log(result)
+                return res.render('menuBank');
+            // return res.json('הינך רשום לאתר');
+
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+
+
+};
 // node_modules\.bin\sequelize model:generate --name questionnaire --attributes email:string,constructionAnomalies:bool,vacati
 // onApartment:bool,NotPurchasedFromContractorEndNoForm4:bool,purchaseInTrust:bool,theRightsSettlementProcessHasNotBeenCompleted:bool,buyersReceivers:bool,rtmentFromC
 // PR:bool,apartmentPricePeroccupant:bool,secondHandApartment:bool,privateHouse:bool,SelfBuiltHouse:bool,field:bool,equity:string,valueOfTheConference:string,centerAr
