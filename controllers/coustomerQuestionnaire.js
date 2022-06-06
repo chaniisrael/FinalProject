@@ -36,7 +36,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         field:field, equity:equity, valueOfTheConference:valueOfTheConference, centerArea:centerArea, northRegionArea:northRegionArea, southernArea:southernArea
     })
         .then((result) => {
-            return res.render('login', {message2: "ההרשמה בוצע בהצלחה"});
+            // return res.render('login', {message2: "ההרשמה בוצע בהצלחה"});
         })
         .catch((err) => {
             console.log('There was an error querying contacts', JSON.stringify(err))
@@ -71,17 +71,10 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
             return res.send(err)
         });
     let seniorityInWork = req.body.seniorityInWork;//וותק בתפקיד
-    // let monthlySalary = req.body.monthlySalary;// משכורת חודשית
     let businessSeniority = req.body.businessSeniority;// וותק העסק
-    // let averageMonthlyIncome = req.body.averageMonthlyIncome;// הכנסה חודשית ממוצעת
     let seniorityInOffice = req.body.seniorityInOffice;// וותק בתפקיד
-    // let monthlySalary2 = req.body.monthlySalary2;// משכורת חודשית
     let seniorityInRecentWork = req.body.seniorityInRecentWork;//וותק בעבודה האחרונה
     let lastWorkEndTime = req.body.lastWorkEndTime;//זמן סיום עבודה אחרונה
-    // let monthlySalaryInLastJob = req.body.monthlySalaryInLastJob;//משכורת חודשית בעבודה האחרונה
-    // let amountOfThePension = req.body.amountOfThePension;//גובה קיצבת הפנסיה
-    // let heightOfStipination = req.body.heightOfStipination;//גובה קיצבה
-    // let scholarshipAmount = req.body.scholarshipAmount;//גובה מילגה
     let averageMonthlyIncome = req.body.monthlySalaryInLastJob + req.body.amountOfThePension + req.body.heightOfStipination +
         req.body.scholarshipAmount + req.body.monthlyIncomeLevel - req.body.monthlyPaymentAmountOnCommitment;
     let theBank = req.body.theBank;// הבנק בו מתנהל החשבון
@@ -135,7 +128,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         });
 
 
-    return res.render('forms', {message90: req.body.ifThereComplexity});
+    return res.render('forms', {message90: "בקשתך נקלטה. עבור ללשונית צרוף מסמכים בכדי להשלם את תהליך הבקשה "});
 
 //--------------------------------------------------------------------------
     function IfThereComplexity(ifThereComplexity) {

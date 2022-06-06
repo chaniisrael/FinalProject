@@ -1,3 +1,4 @@
+// document.getElementById("22").innerHTML=`<div>11</div>`
 document.addEventListener('DOMContentLoaded', function () {
     // document.getElementById("question7").addEventListener("click", question);
     // document.getElementById("employment").addEventListener("click", theJob);
