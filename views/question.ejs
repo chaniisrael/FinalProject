@@ -34,19 +34,8 @@
 
 
                         <div dir="rtl" class="   col-lg-6  ">
-                            <div class="input-group">
-                                <select selected type="text" class="form-select" id="question" name="propertyType" >
-                                    <option  value="0">מהו סוג הנכס</option>
-                                    <option value="1">דירה מקבלן</option>
-                                    <option value="2">דירה מחיר למשתכן </option>
-                                    <option value="3">דירה יד שניה</option>
-                                    <option value="4">בית פרטי</option>
-                                    <option value="5">בית בבניה עצמית</option>
-                                    <option value="6">מגרש</option>
-                                </select>
-                                <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
-                            </div>
-                        </div><br><br><br>
+                            <%- include('./question/question6.ejs') %>
+
                     </div>
 
                     <div class="fst-italic row d-flex justify-content-end ">
@@ -94,11 +83,6 @@
                     <br>
                     <div class="mb-3" id="aboutWork"></div>
                 </div><br><br><br>
-
-
-                <!--            <div dir="rtl" class="row">-->
-
-                <!--            </div><br><br><br>-->
 
                 <div class=" d-flex justify-content-end mt-md-3">
                     <input type="submit" value="הגש" class="btn btn-primary mb-3" >
