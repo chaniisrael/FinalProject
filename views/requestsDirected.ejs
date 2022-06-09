@@ -3,6 +3,27 @@
 <haed>
 
     <style>
+        .collapsible {
+
+            cursor: pointer;
+            padding: 4px;
+            width: 7%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active, .collapsible:hover {
+
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
         .card{
             box-shadow: 0 0 100px rgba(0,0,0,0.2);
 
@@ -17,23 +38,63 @@
             /*border-radius: 4px;*/
             /*cursor: pointer;*/
         }
+        p1 {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p2 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .p3 {
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        p.b {
+            font: italic small-caps bold 12px/30px Georgia, serif;
+        }
+        h1.a {
+            font: italic small-caps bold 16px/2 cursive;
+        }
+        h1.c {
+            font-size: 300%;
+        }
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
     </style>
     <script src="/js/requestsDirected.js"></script>
 
 </haed>
 <body>
-<div class="row text-center md-3">
-    <div class="col-lg-12  "><h1><b>בקשות מופנות</b></h1></div>
+<div class="row text-center  ">
+    <p class="col-lg-12 a "><h1 class="a c">בקשות מופנות</h1></p>
 </div>
 <section id="contact" class="contact">
     <div class="container">
         <div  class="  fst-italic row d-flex justify-content-end mb-3 ">
 
-            <div dir="rtl"  style="max-width: 50rem;" id="chani2" >
+            <div dir="rtl"  style="max-width: 50rem;" id="requests" >
 
 
             </div>
 
         </div></div></section>
 </body>
+
 </html>
+<script>
+
+</script>
+

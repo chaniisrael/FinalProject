@@ -89,6 +89,8 @@ exports.findRequestsDirected= (req, res, next) => {
 };
 exports.findRequests = (req, res, next) => {
 debugger;
+    // db.RequestsInProcess.update({nameCustomer:"דבורה בוכבינדר "}, {where: {id:"8", nameBank: "מרכנתיל"}})
+
     db.RequestsInProcess.findAll({where: {nameCustomer:"חני ישראל"}})
         .then((result) => {
              console.log(result)
@@ -108,31 +110,6 @@ debugger;
 };
 
 exports.bank = (req, res, next) => {
-
-    // db.RequestsInProcess.create({nameBank:"מרכנתיל",nameCustomer:"דבורה בוכבינדר",
-    //     requestHeight:"200,000",amountOfEquity:"900,000",
-    //     file1:"https://www.google.com/webhp",file2:"https://www.google.com/webhp",file3:"https://www.google.com/webhp",file4:"https://www.google.com/webhp",remarks:"https://www.google.com/webhp",applicationProcess:"0"})
-    //     .then((result)=>{
-    //         console.log(result)
-    //
-    //     })
-    // .catch((err) => {
-    //     console.log('There was an error querying contacts', JSON.stringify(err))
-    //     return res.send(err)
-    // });
-
-    // debugger;
-    // db.Banks.create({bankName: 'פאגי',password:'pagi12'})
-    //     .then((result) => {
-    //         console.log(result)
-    //             return res.render('menuBank');
-    //         // return res.json('הינך רשום לאתר');
-    //
-    //     })
-    //     .catch((err) => {
-    //         console.log('There was an error querying contacts', JSON.stringify(err))
-    //         return res.send(err)
-    //     });
     req.session.bankName= req.body.nameBank;
     db.Banks.findAll({where: {bankName: req.body.nameBank,password:req.body.passwordBank}})
         .then((result) => {
@@ -144,6 +121,19 @@ exports.bank = (req, res, next) => {
             return res.render('menuBank',{message14:"ברוכה הבאה בנק"+" "+req.body.nameBank});
 
 
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+
+
+};
+
+exports.updateRequestsInProcess= (req, res, next) => {
+
+    db.RequestsInProcess.update({nameCustomer:"דבורה בוכבינדר"}, {where: {id:req.body.id}})
+        .then((result) => {
         })
         .catch((err) => {
             console.log('There was an error querying contacts', JSON.stringify(err))
