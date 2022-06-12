@@ -30,6 +30,8 @@ router.get('/password', function(req, res, next) {
 
 
 router.post('/saveQuestionnaireData',coustomerQuestionnaireController.addingDetilsFromQuestionnaire)
+// router.post('/ifCustonerFilledQuestionnaire',coustomerQuestionnaireController.ifCustonerFilledQuestionnaire);
+
 
 router.post('/save', loginController.addEmail);
 router.post('/findIfExit', loginController.findEmail);

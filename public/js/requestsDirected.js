@@ -1,13 +1,5 @@
-// document.addEventListener('DOMContentLoaded', function () {
 debugger;
-//     document.getElementById("mm").addEventListener("onsubmit", fetch1);
-//
-//
-//
-// }, false);
-//
-// function fetch1(e)
-// {
+
 fetch('/users/findRequestsDirected',{
     method:'post',
     headers: {
@@ -17,15 +9,14 @@ fetch('/users/findRequestsDirected',{
 }).then(function (res) {
     res.json().then(function (data) {
         console.log(data);
-        if(data==='הינך רשום לאתר')
+        if(data==='אין נתונים זמינים')
         {
-
-            document.getElementById('requests').innerHTML=data;
+            document.getElementById('requests').innerHTML+=data;
         }
         else {
             for (let i = 0; i < data.length; i++) {
 
-                document.getElementById('requests').innerHTML += `<div id="${i}" class="container card mb-3  w-20" style="max-width: 50rem;"><h6> שם הלקוח: ${data[i].nameCustomer} </h6>
+                document.getElementById('requests').innerHTML += `<div id="${data[i].nameCustomer}" class="container card mb-3  w-20" style="max-width: 50rem;"><h6> שם הלקוח: ${data[i].nameCustomer} </h6>
                                                                    <h6>גובה הבקשה: ${data[i].requestHeight}</h6>
                                                                    <h6>גובה הון עצמי: ${data[i].amountOfEquity}</h6>
                                                                    <h6>קישורים למסמכים:</h6>
@@ -37,42 +28,28 @@ fetch('/users/findRequestsDirected',{
                                                                       <div class="content">
                                                                          <p>${data[i].remarks}</p>
                                                                       </div>
-                                                                      <button type="submit" id ="${data[i].id}" class=" vv btn btn-primary" style="
-            width: 100%;
-            /*background-color: #4CAF50;*/
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;"
-        
-
-        ]>לחץ לאישור הבקשה
-            
-        </button>
-        
+                                                                      <button type="submit" id ="${data[i].id}" class=" vv btn btn-primary" >לחץ לאישור  </button>  </div>`;
 
 
-
-
-                                                               </div>`;
-
-            }
+                }
             collapsible();
 
             let coll2 = document.getElementsByClassName("vv");
 
             for ( let j = 0; j < coll2.length; j++) {
+                console.log("colls "+coll2[j])
+                let myid=coll2[j].id;
                 coll2[j].addEventListener("click", function() {
-                    button(coll2[j]);
+                    coll2[j].classList.remove('btn-primary');
+                    coll2[j].classList.add('btn-success');
+
+                    button(data,myid);
                     console.log("vjb")
                 });
 
             }
 
         }
-        // document.getElementById("my11").submit();
     })
 }).catch(function (err) {
     // need to display error message!
@@ -96,17 +73,34 @@ fetch('/users/findRequestsDirected',{
          });
      }
  }
- function button(id)
+ function button(data,id)
  {
-     console.log(id.id)
+     console.log(id)
      fetch('/users/updateRequestsInProcess',{
          method:'post',
          headers: {
              'Content-Type': 'application/json'
          },
-         body: JSON.stringify({id:id.id}),
+         body: JSON.stringify({id:id}),
      }).then(function (res) {
+         res.json().then(function (data2) {
+         if(data2==='כפתור לא נמצא')
+         {
+            // document.getElementById(id.nameCustomer).innerHTML=data2;
+         }
+         else
+         {
 
+             for (let i = 0; i < data.length; i++) {
+                 if(data[i].id==id)
+                 {
+                     document.getElementById(data[i].nameCustomer).innerHTML=`<div>הבקשה אושרה </div>`;
+                     break;
+                 }
+
+             }
+         }
+         })
      }).catch(function (err) {
          // need to display error message!
          console.log('Fetch Error :', err);

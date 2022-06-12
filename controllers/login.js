@@ -1,8 +1,11 @@
 const db = require('../models'); //contain the Contact model, which is accessible via db.Contact
 
+
+
 exports.findUserName = (req, res, next) => {
     req.session.userName = req.body.userName;
-    db.Users.findAll({where: {userName: req.body.userName, password: req.body.password}})
+
+    db.Users.findAll({where: {userName: req.session.userName, password: req.body.password}})
         .then((result) => {
             // console.log(result+"jbh")
             if (result.length === 0)
@@ -74,7 +77,7 @@ exports.findRequestsDirected= (req, res, next) => {
         .then((result) => {
             console.log(result)
             if (result.length === 0)
-                return res.json('הינך רשום לאתר');
+                return res.json('אין נתונים זמינים');
             else
                 return res.json(result);
             // return res.json('הינך רשום לאתר');
@@ -132,8 +135,14 @@ exports.bank = (req, res, next) => {
 
 exports.updateRequestsInProcess= (req, res, next) => {
 
-    db.RequestsInProcess.update({nameCustomer:"דבורה בוכבינדר"}, {where: {id:req.body.id}})
+    db.RequestsInProcess.update({applicationProcess:"בקשתך אושרה"}, {where: {id:req.body.id}})
         .then((result) => {
+            if (result.length === 0)
+                return res.json('כפתור לא נמצא');
+            else {
+                console.log(result)
+                return res.json(result);
+            }
         })
         .catch((err) => {
             console.log('There was an error querying contacts', JSON.stringify(err))

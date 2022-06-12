@@ -45,7 +45,6 @@ function login(event) {
 }
 //--------------------------------------------------------------------
 function login2(e) {
-    console.log("jbhhhh")
     e.preventDefault();
     let mail = document.getElementById('mail').value;
 

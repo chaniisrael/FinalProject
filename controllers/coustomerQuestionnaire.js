@@ -1,4 +1,22 @@
 const db = require("../models");
+exports.ifCustonerFilledQuestionnaire = (req,res,next)=>{
+
+    db.asset.findAll({where: {email:req.session.userName}})
+        .then((result) => {
+            // if (result.length === 0) {
+                 res.render('question');
+            // }
+            // else
+            // {
+            //     return res.render('forms', {message90: "בקשתך נקלטה. עבור ללשונית צרוף מסמכים בכדי להשלם את תהליך הבקשה "});
+            // }
+
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+}
 exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
     //משתנים של גיל
@@ -42,7 +60,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
         db.asset.create({
             email: req.session.userName,
-            rconstructionAnomalies: constructionAnomalies,
+            constructionAnomalies: constructionAnomalies,
             vacationApartment: vacationApartment,
             NotPurchasedFromContractorEndNoForm4: NotPurchasedFromContractorEndNoForm4,
             purchaseInTrust: purchaseInTrust,

@@ -30,7 +30,7 @@
                     document.getElementById('chani').innerHTML += `<div class="container card mb-3" style="max-width: 50rem;"><div><h6>  שם הבנק: ${data[i].nameBank} </h6>
                                                                              <h6>גובה הבקשה: ${data[i].requestHeight}</h6>
                                                                    <h6>גובה הון עצמי: ${data[i].amountOfEquity}</h6>
-                                                                   <h6> ${nn}</h6></div></div>`;
+                                                                   <h6> ${data[i].applicationProcess}</h6></div></div>`;
                 }
             }
             // document.getElementById("my11").submit();
