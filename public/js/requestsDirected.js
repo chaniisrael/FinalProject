@@ -1,11 +1,11 @@
 debugger;
 
-fetch('/users/findRequestsDirected',{
+fetch('/loginBank/findRequestsDirected',{
     method:'post',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({userName:"חני"}),
+    // body: JSON.stringify({userName:"חני"}),
 }).then(function (res) {
     res.json().then(function (data) {
         console.log(data);
@@ -40,8 +40,8 @@ fetch('/users/findRequestsDirected',{
                 console.log("colls "+coll2[j])
                 let myid=coll2[j].id;
                 coll2[j].addEventListener("click", function() {
-                    coll2[j].classList.remove('btn-primary');
-                    coll2[j].classList.add('btn-success');
+                    // coll2[j].classList.remove('btn-primary');
+                    // coll2[j].classList.add('btn-success');
 
                     button(data,myid);
                     console.log("vjb")
@@ -76,7 +76,7 @@ fetch('/users/findRequestsDirected',{
  function button(data,id)
  {
      console.log(id)
-     fetch('/users/updateRequestsInProcess',{
+     fetch('/loginBank/updateRequestsInProcess',{
          method:'post',
          headers: {
              'Content-Type': 'application/json'

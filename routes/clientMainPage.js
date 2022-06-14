@@ -4,15 +4,10 @@ const loginController = require('../controllers/login');
 
 let router = express.Router();
 
-// router.get('/question', function(req, res, next) {
-//
-//     res.render('question');
-// });
-// router.post('question', function(req, res, next) {
-    router.get('/question',coustomerQuestionnaireController.ifCustonerFilledQuestionnaire);
 
-    // res.render('question');
-// });
+router.get('/question',coustomerQuestionnaireController.ifCustonerFilledQuestionnaire);
+
+
 
 router.get('/trackRequest', function(req, res, next) {
     res.render('trackRequest');

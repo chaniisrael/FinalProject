@@ -237,12 +237,12 @@ function additionalRevenue(e)
     {
         document.getElementById("revenue").innerHTML=`<div class="row"> <div class=" col-lg-6 mb-3 ">
           <div class="input-group">
-            <select type="text" class="form-select" name="typeOfIncome" id="typeOfIncome" required> 
-                <option class="">סוג הכנסה</option>
-                <option class="" value="foods">מזונות</option>
-                <option class="" value="scholarship">מלגה</option>
-                <option class="" value="rent">שכירות</option>
-                <option class="" value="allowances">קצבאות</option>
+            <select type="text" class="selectpicker" name="typeOfIncome" id="typeOfIncome" required  multiple aria-label="size 3 select example"> 
+                <option  value="0">סוג הכנסה</option>
+                <option  value="foods">מזונות</option>
+                <option  value="scholarship">מלגה</option>
+                <option  value="rent">שכירות</option>
+                <option  value="allowances">קצבאות</option>
             </select>
              <label class="input-group-text" for="inputGroupSelect02">אפשרויות</label>
         </div>
@@ -270,7 +270,7 @@ function commitment(e) {
         document.getElementById("commit").innerHTML=`<div class="row" >
         <div class=" col-lg-6 mb-3 ">
            <div class="input-group">
-            <select type="text" class="form-select" name="typeOfCommitment" id="typeOfCommitment" required>
+            <select type="text" class="selectpicker" multiple aria-label="size 3 select example" name="typeOfCommitment" id="typeOfCommitment" required>
               <option class="">סוג התחיבות</option>
               <option class="" value="bankLoan">הלוואה בנקאית</option>
               <option class="" value="nonBankLoan">הלוואה חוץ בנקאית</option>
@@ -299,8 +299,8 @@ function pansyProblem(e) {
     {
         document.getElementById("problem").innerHTML= `<div class="row"><div class=" col-lg-6 mb-3" >
           <div class="input-group">
-            <select type="text" class="form-select" name="problemType" id="problemType" required>
-              <option class="">סוג בעיה</option>
+            <select dir="rtl" type="text" class="selectpicker"  name="problemType" id="problemType" required multiple aria-label="size 3 select example">
+              <option value="0">סוג בעיה</option>
               <option  value="checks">שיקים ללא כיסוי</option>
               <option value="subordinatedLoans">הלוואות בפיגור</option>
               <option  value="execution">הוצאה לפועל</option>

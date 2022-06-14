@@ -1,7 +1,7 @@
 const db = require("../models");
 exports.ifCustonerFilledQuestionnaire = (req,res,next)=>{
 
-    db.asset.findAll({where: {email:req.session.userName}})
+    db.asset.findAll({where: {email: req.session.email}})
         .then((result) => {
             // if (result.length === 0) {
                  res.render('question');
@@ -59,7 +59,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         PropertyAreaYouPurchasing(req.body.propertyAreaYouPurchasing);//באיזה ישוב נמצא הנכס שאתם רוכשים
 
         db.asset.create({
-            email: req.session.userName,
+            email:  req.session.email,
             constructionAnomalies: constructionAnomalies,
             vacationApartment: vacationApartment,
             NotPurchasedFromContractorEndNoForm4: NotPurchasedFromContractorEndNoForm4,
@@ -98,7 +98,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         TheJob(req.body.theJob);//עבודה
 
         db.PersonalDetails.create({
-            email: req.session.userName,
+            email:  req.session.email,
             name: name,
             ageLessThan18: ageLessThan18,
             ageBetween18And40: ageBetween18And40,
@@ -159,7 +159,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
             ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
         }
         db.WorkDetails.create({
-            email: req.session.userName,
+            email:  req.session.email,
             seniorityInWork: seniorityInWork,
             businessSeniority: businessSeniority,
             seniorityInOffice: seniorityInOffice,

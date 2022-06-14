@@ -13,6 +13,9 @@ var quesRouter = require('./routes/questions');
 var loginBankRouter = require('./routes/loginBank');
 var clientMainPageRouter = require('./routes/clientMainPage');
 const apiRoutes = require('./routes/api');
+const matchmakingRoutes = require('./routes/matchmaking');
+
+
 
 
 
@@ -41,6 +44,8 @@ app.use('/questions', quesRouter);
 app.use('/api', apiRoutes);
 app.use('/loginBank',loginBankRouter);
 app.use('/clientMainPage',clientMainPageRouter);
+app.use('/matchmaking', matchmakingRoutes);
+
 
 
 

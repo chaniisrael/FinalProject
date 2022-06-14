@@ -10,9 +10,12 @@ exports.findUserName = (req, res, next) => {
             // console.log(result+"jbh")
             if (result.length === 0)
                 return res.render('login', {message2: "השם משתמש או הסיסמה שגויים"});
-            else
-                return res.render('menuLogin', {message3: "ברוכה הבאה" + " " + req.body.userName});
-            // return res.json('הינך רשום לאתר');
+            else {
+                req.session.email = result[0].mail
+                req.session.firstName = result[0].firstName
+                req.session.lastName = result[0].lastName
+                return res.render('menuLogin', {message3: "ברוכה הבאה" + " " +  result[0].firstName+" "+result[0].lastName});
+            }
 
         })
         .catch((err) => {
@@ -71,30 +74,12 @@ exports.addEmail = (req, res, next) => {
     // });
 
 };
-exports.findRequestsDirected= (req, res, next) => {
-    debugger;
-    db.RequestsInProcess.findAll({where: {nameBank:"מרכנתיל"}})
-        .then((result) => {
-            console.log(result)
-            if (result.length === 0)
-                return res.json('אין נתונים זמינים');
-            else
-                return res.json(result);
-            // return res.json('הינך רשום לאתר');
 
-        })
-        .catch((err) => {
-            console.log('There was an error querying contacts', JSON.stringify(err))
-            return res.send(err)
-        });
-
-
-};
 exports.findRequests = (req, res, next) => {
 debugger;
     // db.RequestsInProcess.update({nameCustomer:"דבורה בוכבינדר "}, {where: {id:"8", nameBank: "מרכנתיל"}})
 
-    db.RequestsInProcess.findAll({where: {nameCustomer:"חני ישראל"}})
+    db.RequestsInProcess.findAll({where: {email: req.session.email}})
         .then((result) => {
              console.log(result)
             if (result.length === 0)
@@ -112,45 +97,7 @@ debugger;
 
 };
 
-exports.bank = (req, res, next) => {
-    req.session.bankName= req.body.nameBank;
-    db.Banks.findAll({where: {bankName: req.body.nameBank,password:req.body.passwordBank}})
-        .then((result) => {
-            console.log(result)
-            if (result.length === 0)
-                return res.render('loginBank', {message13: "השם או הסיסמה אינם נכונים"});
 
-            else
-            return res.render('menuBank',{message14:"ברוכה הבאה בנק"+" "+req.body.nameBank});
-
-
-        })
-        .catch((err) => {
-            console.log('There was an error querying contacts', JSON.stringify(err))
-            return res.send(err)
-        });
-
-
-};
-
-exports.updateRequestsInProcess= (req, res, next) => {
-
-    db.RequestsInProcess.update({applicationProcess:"בקשתך אושרה"}, {where: {id:req.body.id}})
-        .then((result) => {
-            if (result.length === 0)
-                return res.json('כפתור לא נמצא');
-            else {
-                console.log(result)
-                return res.json(result);
-            }
-        })
-        .catch((err) => {
-            console.log('There was an error querying contacts', JSON.stringify(err))
-            return res.send(err)
-        });
-
-
-};
 // node_modules\.bin\sequelize model:generate --name questionnaire --attributes email:string,constructionAnomalies:bool,vacati
 // onApartment:bool,NotPurchasedFromContractorEndNoForm4:bool,purchaseInTrust:bool,theRightsSettlementProcessHasNotBeenCompleted:bool,buyersReceivers:bool,rtmentFromC
 // PR:bool,apartmentPricePeroccupant:bool,secondHandApartment:bool,privateHouse:bool,SelfBuiltHouse:bool,field:bool,equity:string,valueOfTheConference:string,centerAr

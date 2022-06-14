@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   RequestsInProcess.init({
+    email: DataTypes.STRING,
     nameBank: DataTypes.STRING,
     nameCustomer: DataTypes.STRING,
     requestHeight: DataTypes.STRING,
@@ -23,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     file3: DataTypes.STRING,
     file4: DataTypes.STRING,
     remarks: DataTypes.STRING,
-    applicationProcess: DataTypes.BOOLEAN
+    applicationProcess: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'RequestsInProcess',

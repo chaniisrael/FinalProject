@@ -17,6 +17,7 @@ router.post('/password', function(req, res, next) {
     req.session.lastName=req.body.lastName;
     req.session.phone=req.body.phone;
     req.session.mail=req.body.mail;
+    req.session.userName=req.body.userName
 
     res.render('password');
 });
@@ -26,7 +27,15 @@ router.get('/password', function(req, res, next) {
     res.redirect('/register');
 });
 //------------------------------------------------------------------------------
-;
+router.get('/menuLogin', function(req, res, next) {
+
+    res.render('menuLogin', {message3: "ברוכה הבאה" + " " + req.session.lastName+" "+req.session.firstName})
+});
+
+router.post('/menuLogin', function(req, res, next) {
+
+    res.render('menuLogin', {message3: "ברוכה הבאה" + " " + req.session.firstName+" "+req.session.lastName})
+});
 
 
 router.post('/saveQuestionnaireData',coustomerQuestionnaireController.addingDetilsFromQuestionnaire)
