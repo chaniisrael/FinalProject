@@ -2,42 +2,40 @@ const db = require('../models'); //contain the Contact model, which is accessibl
 const express = require('express');
 var router = express.Router();
 const { Op } = require("sequelize");
-// var transport = nodemailer.createTransport({
-//     host: "smtp.mailtrap.io",
-//     port: 2525,
-//     auth: {
-//         user: "a81a7e21a80b15",
-//         pass: "ee4799abd60db4"
-//     }
-// });
-// const Email = require("email");
-var sendmail = require('sendmail')
+const nodemailer = require("nodemailer");
 
 
 
+let transporter = nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+        user:"chanais@edu.hac.ac.il",
+        pass:"211429568"
+    },
+    tls:{
+        rejectUnauthorized: false,
+    }
+});
+let mailOptions ={
+    from: "chanais@edu.hac.ac.il",
+    to: "chaniexo16@gmail.com",
+    subject:"hii",
+    text:"jbsjcnvnkfvnbk nckbn ",
+
+}
 
 exports.matchmaking = (req, res, next) => {
-    sendmail({
-        from: 'test@yourdomain.com',
-        to: 'chaniexo16@gmail.com',
-        replyTo: 'jason@yourdomain.com',
-        subject: 'MailComposer sendmail',
-        html: 'Mail of test sendmail '
-    }, function (err, reply) {
-        console.log(err && err.stack)
-        console.dir(reply)
-    })
-    // Email.send({
-    //     Host : "smtp.mailtrap.io",
-    //     Username : "<Mailtrap username>",
-    //     Password : "<Mailtrap password>",
-    //     To : 'chaniexo16@gmail.com',
-    //     From : "sender@example.com",
-    //     Subject : "Test email",
-    //     Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
-    // }).then(
-    //     message => alert(message)
-    // );
+
+    transporter.sendMail(mailOptions)
+        .then(function(res){
+            console.log("Email send")
+        })
+        .catch(function (err)
+        {
+            console.log(err)
+        })
+
+
     // let basicMatch = criticalMatch(req.session.email);
     // if (basicMatch.length >3)
     //     console.log("true")
