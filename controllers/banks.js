@@ -16,6 +16,7 @@ exports.findRequestsDirected= (req, res, next) => {
 
 
 };
+
 //--------------------------------------------------------------------------------
 exports.bank = (req, res, next) => {
     req.session.bankName= req.body.nameBank;
@@ -58,13 +59,28 @@ exports.updateRequestsInProcess= (req, res, next) => {
 };
 //----------------------------------------------------------------------------
 // exports.nn= (req, res, next) => {
+//     db.BankSideProperties.update({bankName:"הבינלאומי"}, {where: {id:"5"}})
 //
-// db.WorkDetailsBankSide.create({nameBank:"פאגי",plus:true,
-//     deviation:true,checks:false,
-//     subordinatedLoans:false,execution:true,limitedAccount:false,lessThanHaifYear:false,betweenHaifYearAndYear:false,
-//     betweenOnYearAndThreeYears:true,OverHisYears:true})
+// // db.BankSideProperties.create({bankName:"פאגי",
+// //     constructionAnomalies:false,
+// //     vacationApartment: true,
+// //     NotPurchasedFromContractorEndNoForm4: true,
+// //     purchaseInTrust:true ,
+// //     theRightsSettlementProcessHasNotBeenCompleted:true ,
+// //     buyersReceivers:true ,
+// //     rtmentFromCPR: true,
+// //     apartmentPricePeroccupant: true,
+// //     secondHandApartment: false,
+// //     privateHouse: false,
+// //     SelfBuiltHouse: false,
+// //     field:false ,
+// //     centerArea:false,
+// //     northRegionArea: false,
+// //     southernArea:true
+// // })
 //     .then((result)=>{
 //         return res.render('menuBank',{message14:"ברוכה הבאה בנק"+" "+req.body.nameBank});
+// // node_modules/.bin/sequelize model:generate --name BankSidePropertie --attributes constructionAnomalies:boolean,vacationApartment:boolean,NotPurchasedFromContractorEndNoForm4:boolean,purchaseInTrust:boolean,theRightsSettlementProcessHasNotBeenCompleted:boolean,buyersReceivers:boolean,rtmentFromCPR:boolean,apartmentPricePeroccupant:boolean,secondHandApartment:boolean,privateHouse:boolean,SelfBuiltHouse:boolean,field:boolean,equity:string,valueOfTheConference:string,centerArea:boolean,northRegionArea:boolean,southernArea:boolean
 //
 //         // console.log("in result")
 //         // return res.render('loginBank', {message13: "השם או הסיסמה אינם נכונים"});
@@ -74,7 +90,7 @@ exports.updateRequestsInProcess= (req, res, next) => {
 //         return res.send(err)
 //     });
 // };
-
-
+//
+//
 
 

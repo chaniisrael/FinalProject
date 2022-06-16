@@ -76,17 +76,43 @@ exports.addEmail = (req, res, next) => {
 };
 
 exports.findRequests = (req, res, next) => {
-debugger;
     // db.RequestsInProcess.update({nameCustomer:"דבורה בוכבינדר "}, {where: {id:"8", nameBank: "מרכנתיל"}})
+    console.log(req.session.email)
 
-    db.RequestsInProcess.findAll({where: {email: req.session.email}})
+    db.RequestsInProcess.findAll({where: {email:req.session.email}})
         .then((result) => {
              console.log(result)
             if (result.length === 0)
              return res.json('הינך רשום לאתר');
-            else
+            else {
+                console.log(result[0])
                 return res.json(result);
+                // debugger;
+
+            }
             // return res.json('הינך רשום לאתר');
+
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+
+
+};
+exports.findIfComments = (req, res, next) => {
+
+
+    db.files.findAll({where: {email:req.session.email}})
+        .then((result) => {
+            console.log(result)
+            if (result.length === 0)
+                return res.json('הינך רשום לאתר');
+            else {
+
+                console.log(result[0])
+                return res.json(result);
+            }
 
         })
         .catch((err) => {
@@ -122,3 +148,8 @@ debugger;
 // node_modules\.bin\sequelize db:migrate
 
 // node_modules/.bin/sequelize model:generate --name WorkDetails --attributes email:string,seniorityInWork:string,businessSeniority:string,seniorityInOffice:string,seniorityInRecentWork:string,lastWorkEndTime:string,averageMonthlyIncome:string,theBank:string,plus:boolean,deviation:boolean,typeOfIncome:string,typeOfCommitment:string,checks:boolean,subordinatedLoans:boolean,execution:boolean,limitedAccount:boolean,lessThanHaifYear:boolean,betweenHaifYearAndYear:boolean,betweenOnYearAndThreeYears:boolean,OverHisYears:boolean
+
+
+
+// node_modules/.bin/sequelize model:generate --name BankSideProperties --attributes bankName:string,constructionAnomalies:boolean,vacationApartment:boolean,NotPurchasedFromContractorEndNoForm4:boolean,purchaseInTrust:boolean,theRightsSettlementProcessHasNotBeenCompleted:boolean,buyersReceivers:boolean,rtmentFromCPR:boolean,apartmentPricePeroccupant:boolean,secondHandApartment:boolean,privateHouse:boolean,SelfBuiltHouse:boolean,field:boolean,centerArea:boolean,northRegionArea:boolean,southernArea:boolean
+

@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class BankSideProperty extends Model {
+  class BankSideProperties extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,8 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  BankSideProperty.init({
-    nameBank: DataTypes.STRING,
+  BankSideProperties.init({
     constructionAnomalies: DataTypes.BOOLEAN,
     vacationApartment: DataTypes.BOOLEAN,
     NotPurchasedFromContractorEndNoForm4: DataTypes.BOOLEAN,
@@ -27,13 +26,12 @@ module.exports = (sequelize, DataTypes) => {
     privateHouse: DataTypes.BOOLEAN,
     SelfBuiltHouse: DataTypes.BOOLEAN,
     field: DataTypes.BOOLEAN,
-    equity: DataTypes.STRING,
-    valueOfTheConference: DataTypes.STRING,
     centerArea: DataTypes.BOOLEAN,
-    amountEquityRequired: DataTypes.STRING
+    northRegionArea: DataTypes.BOOLEAN,
+    southernArea: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'BankSideProperty',
+    modelName: 'BankSideProperties',
   });
-  return BankSideProperty;
+  return BankSideProperties;
 };

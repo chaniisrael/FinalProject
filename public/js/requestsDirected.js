@@ -20,10 +20,10 @@ fetch('/loginBank/findRequestsDirected',{
                                                                    <h6>גובה הבקשה: ${data[i].requestHeight}</h6>
                                                                    <h6>גובה הון עצמי: ${data[i].amountOfEquity}</h6>
                                                                    <h6>קישורים למסמכים:</h6>
-                                                                   <a  href="${data[i].file1}">${data[i].file1}</a>
-                                                                   <a href="${data[i].file2}">${data[i].file2}</a>
-                                                                    <a href="${data[i].file3}">${data[i].file3}</a>
-                                                                     <a href="${data[i].file4}">${data[i].file4}</a>
+                                                                   <a  href="${data[i].file1}",">ריכוז יתרות</a>
+                                                                   <a href="${data[i].file2}">פרוט הלוואות</a>
+                                                                    <a href="${data[i].file3}">עובר ושב</a>
+                                                                     <a href="${data[i].file4}">תלוש שכר</a>
                                                                      <button type="button" class="collapsible">הערות</button>
                                                                       <div class="content">
                                                                          <p>${data[i].remarks}</p>

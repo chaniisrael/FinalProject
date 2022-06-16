@@ -15,6 +15,13 @@ router.get('/trackRequest', function(req, res, next) {
 router.post('/trackRequest', function(req, res, next) {
     res.render('trackRequest');
 });
+router.post('/customerMessags', function(req, res, next) {
+    res.render('customerMessags');
+});
+router.get('/customerMessags', function(req, res, next) {
+    res.render('customerMessags');
+});
+
 
 router.get('/files', function(req, res, next) {
     res.render('files');

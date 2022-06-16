@@ -1,4 +1,8 @@
-
+// fetch('/users/findRequests',{
+//     method:'post',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
     fetch('/users/findRequests',{
         method:'post',
         headers: {
@@ -23,5 +27,9 @@
     }).catch(function (err) {
         console.log('Fetch Error :', err);
     });
+
+
+//----------------------------------------------------------------------------------------------------
+
 
 //}

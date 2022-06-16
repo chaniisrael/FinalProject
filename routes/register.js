@@ -16,7 +16,7 @@ router.post('/password', function(req, res, next) {
     req.session.firstName=req.body.firstName;
     req.session.lastName=req.body.lastName;
     req.session.phone=req.body.phone;
-    req.session.mail=req.body.mail;
+    req.session.email=req.body.mail;
     req.session.userName=req.body.userName
 
     res.render('password');
