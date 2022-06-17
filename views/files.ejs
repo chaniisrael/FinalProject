@@ -34,10 +34,16 @@
             width: 15%;
             padding: 2px 20px;
         }
+        input[type=button] {
+            width: 80%;
+            padding: 5px 20px;
+        }
         input[type=file] {
             width: 2%;
             padding: 5px 5px;
         }
+
+         .nobr { white-space: nowrap }
     </style>
     <script src="/js/file.js"></script>
 
@@ -76,24 +82,30 @@
 
                 <div dir="rtl" class="card " style="max-width: 50rem;">
                     <br>
-                    <form method="post" enctype="multipart/form-data" action="/api/saveFiles" id="balances">
+                    <form  style="white-space: nowrap;" class="mb-3" method="post" enctype="multipart/form-data" action="/api/saveFiles" id="balances">
                         <!--    <h3>ריכוז יתרות עדכני מחשבון הבנק בו מתנהל חשבונכם</h3>-->
+                        <nobr>
+
                         <h6 dir="rtl" class=" d-flex justify-end" >ריכוז יתרות:</h6>
                         <div class="input-group fst-italic  d-flex justify-content-end">
                             <label for="formFile" class="form-label d-flex justify-content-end"></label>
                             <input class="form-control" id = "balances" name = "balances" type="file" multiple>
                         </div>
-                        <div class=" d-flex justify-end mt-md-3">
-                            <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
+                        <div class=" d-flex justify-end mt-md-3 " style="white-space: nowrap;">
+                            <input type="submit" value="העלה קובץ" class="btn btn-primary md-3 " style="white-space: nowrap">
                         </div>
-<!--                        <pre>  </pre>-->
-                        <button type="button " class="collapsible btn btn-primary mb-3">הסבר</button>
-                        <div class="content">
-                            <p>העלת קובץ ריכוז יתרות בנק מעודכן מהשבועים האחרונים</p>
-                        </div>
-
-                        <!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
+                        </nobr>
                     </form>
+
+<!--                        <pre>  </pre>-->
+
+                    <div class="d-flex justify-end" style="white-space: nowrap">
+                    <button type="button " class="collapsible md-3 btn btn-primary d-flex justify-end">הסבר</button>
+                    <div class="content">
+                        <p>העלת קובץ ריכוז יתרות בנק מעודכן מהשבועים האחרונים</p>
+                    </div>
+
+                    </div>
 
                     <form method="post" enctype="multipart/form-data" action="/api/saveFiles1" id="myFiles">
 
@@ -104,14 +116,16 @@
                         </div>
                         <div class=" d-flex justify-end mt-md-3">
                             <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
-                            <pre>  </pre>
-                            <button type="button " class="collapsible btn btn-primary mb-3">הסבר</button>
-                            <div class="content">
-                                <p>העלה קובץ פרוט הלוואות בנק מעודכן לשבועיים האחרונים</p>
-                            </div>
                         </div>
                         <!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
                     </form>
+
+<!--                    <pre>  </pre>-->
+                    <button type="button " class="collapsible md-3 btn btn-primary d-flex justify-end">הסבר</button>
+                    <div class="content">
+                        <p>העלה קובץ פרוט הלוואות בנק מעודכן לשבועיים האחרונים</p>
+                    </div>
+
 
                     <form method="post" enctype="multipart/form-data" action="/api/saveFiles11" id="myFiles11">
                         <h6 dir="rtl" class=" d-flex justify-end" >עובר ושב:</h6>
@@ -121,14 +135,15 @@
                         </div>
                         <div class=" d-flex justify-end mt-md-3">
                             <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
-                            <pre>  </pre>
-                            <button type="button " class="collapsible btn btn-primary mb-3">הסבר</button>
-                            <div class="content">
-                                <p>העלה קובץ תנועות בחשבון בנק של השלושה חודשים האחרונים</p>
-                            </div>
+
                         </div>
                         <!--        <button class="submit-btn" type='submit'>העלה קובץ</button>-->
                     </form>
+<!--                    <pre>  </pre>-->
+                    <button type="button " class="collapsible md-3 btn btn-primary d-flex justify-end">הסבר</button>
+                    <div class="content">
+                        <p>העלה קובץ תנועות בחשבון בנק של השלושה חודשים האחרונים</p>
+                    </div>
 
                     <form method="post" enctype="multipart/form-data" action="/api/saveFilesSalary" >
                         <h6 dir="rtl" class=" d-flex justify-end" >תלוש שכר:</h6>
@@ -138,16 +153,17 @@
                         </div>
                         <div class=" d-flex justify-end mt-md-3">
                             <input type="submit" value="העלה קובץ" class="btn btn-primary mb-3" >
-                            <pre>  </pre>
-                            <button type="button " class="collapsible btn btn-primary mb-3">הסבר</button>
-                            <div class="content">
-                                <p>העלה תלוש שכר מהחצי שנה האחרונה</p>
-                            </div>
                         </div>
-                        <div class=" d-flex justify-content-end mt-md-3" id="file1">
-                            <input type="button" id="file" value="אישור העלת קבצים" class=" center btn btn-primary mb-3" onclick={submit} >
-                        </div>
-                    </form>    </div>
+                    </form>
+<!--                    <pre>  </pre>-->
+                    <button type="button " class="collapsible md-3 btn btn-primary d-flex justify-end">הסבר</button>
+                    <div class="content">
+                        <p>העלה תלוש שכר מהחצי שנה האחרונה</p>
+                    </div>
+                    <div class="center  mt-md-3" id="file1">
+                        <input type="button" id="file" value="אישור העלת קבצים" class=" center btn btn-primary mb-3" onclick={submit} >
+                    </div>
+                </div>
                 <br>
             </div>
         </div>

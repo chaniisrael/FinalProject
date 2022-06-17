@@ -1,15 +1,49 @@
 const db = require("../models");
+exports.ifCustonerUploadedDocument = (req,res,next)=>{
+
+    db.asset.findAll({where: {email: req.session.email}})
+        .then((result) => {
+            if (result.length === 0) {
+
+                res.render('fileError', {message91: "אין עדין מסמכים זמינים להעלה"});
+             }
+            else {
+                db.files.findAll({where: {email: req.session.email}})
+                    .then((result) => {
+                        // if (result[0].documentProcessed === 1) {
+                        // res.render('fileError', {message91: "המסמכים עלו בהצלחה"});
+                        //
+                        // }
+
+
+
+                    })
+        .catch((err) => {
+                console.log('There was an error querying contacts', JSON.stringify(err))
+                return res.send(err)
+            });
+                res.render('files');
+
+            }
+
+        })
+        .catch((err) => {
+            console.log('There was an error querying contacts', JSON.stringify(err))
+            return res.send(err)
+        });
+}
+
 exports.ifCustonerFilledQuestionnaire = (req,res,next)=>{
 
     db.asset.findAll({where: {email: req.session.email}})
         .then((result) => {
-            // if (result.length === 0) {
+            if (result.length === 0) {
                  res.render('question');
-            // }
-            // else
-            // {
-            //     return res.render('forms', {message90: "בקשתך נקלטה. עבור ללשונית צרוף מסמכים בכדי להשלם את תהליך הבקשה "});
-            // }
+           }
+            else
+            {
+                return res.render('forms', {message90: "בקשתך נקלטה. עבור ללשונית צרוף מסמכים בכדי להשלם את תהליך הבקשה "});
+            }
 
         })
         .catch((err) => {
@@ -25,6 +59,27 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
     let ageBetween40And70 = false;
     let ageOver70 = false;
     Age(req.body.age);//  גיל (תאריך לידה
+
+    //סוג הבעיה
+    let checks = false;
+    let subordinatedLoans = false;
+    let execution = false;
+    let limitedAccount = false;
+    // מתי היה בעיה בפעם האחרונה
+    let lessThanHaifYear = false;
+    let betweenHaifYearAndYear = false;
+    let betweenOnYearAndThreeYears = false;
+    let OverHisYears = false;
+
+    if (req.body.pansyProblem === 'yes1') {
+        ProblemType(req.body.problemType)//סוג בעיה
+        ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
+        if(limitedAccount === true)
+            if(lessThanHaifYear === true ||betweenHaifYearAndYear === true)
+                res.render('forms', {message90: "אתה לא עומד בתנאים נסה בעוד חצי שנה"});
+
+
+    }
 
     if(ageLessThan18=== true||ageOver70=== true)
     {
@@ -141,23 +196,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
         // let monthlyPaymentAmountOnCommitment = req.body.monthlyPaymentAmountOnCommitment;//גובה תשלום חודשי
     }
 
-    //סוג הבעיה
-    let checks = false;
-    let subordinatedLoans = false;
-    let execution = false;
-    let limitedAccount = false;
-    if (req.body.pansyProblem === 'yes1') {
-        ProblemType(req.body.problemType)//סוג בעיה
-    }
 
-    // מתי היה בעיה בפעם האחרונה
-    let lessThanHaifYear = false;
-    let betweenHaifYearAndYear = false;
-    let betweenOnYearAndThreeYears = false;
-    let OverHisYears = false;
-    if (req.body.pansyProblem === 'yes1') {
-        ProblemOneLastTime(req.body.problemOneLastTime);//מתי היה בעיה בפעם האחרונה
-    }
     db.WorkDetails.create({
         email:  req.session.email,
         seniorityInWork: seniorityInWork,
@@ -323,10 +362,7 @@ exports.addingDetilsFromQuestionnaire = (req, res, next) => {
 
 //-----------------------------------------------------------
     function ProblemType(problemType) {
-        let checks = false;
-        let subordinatedLoans = false;
-        let execution = false;
-        let limitedAccount = false;
+
         switch (problemType) {
 
             case "checks":

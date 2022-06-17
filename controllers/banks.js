@@ -58,6 +58,7 @@ exports.updateRequestsInProcess= (req, res, next) => {
         });
 };
 //----------------------------------------------------------------------------
+
 // exports.nn= (req, res, next) => {
 //     db.BankSideProperties.update({bankName:"הבינלאומי"}, {where: {id:"5"}})
 //

@@ -1,6 +1,6 @@
 const db = require('../models'); //contain the Contact model, which is accessible via db.Contact
 
-
+const nodemailer = require("nodemailer")
 
 exports.findUserName = (req, res, next) => {
     req.session.userName = req.body.userName;
@@ -124,6 +124,33 @@ exports.findIfComments = (req, res, next) => {
 };
 
 
+exports.sendEmail = (req, res, next) => {
+    req.body.message;
+    let transporter = nodemailer.createTransport({
+        service:"gmail" ,
+        auth:{
+            user:"chanais@edu.hac.ac.il",
+            pass:"211429568",
+        },
+        rejectUnauthorized: false,
+    });
+
+    let mailOptions = {
+        from:"chanais@edu.hac.ac.il",
+        to: req.session.email,
+        subject:"ממתינה לך הודעה חדשה באתר בתיבת הודעות",
+        text:"שלום"+" "+req.session.firstName +" "+req.session.lastName+" "+"היקר/ה"+" "+req.body.message+" "+ "תודה",
+
+
+    };
+    transporter.sendMail(mailOptions)
+        .then(function (res) {
+            console.log("Email send");
+        })
+        .catch(function (err) {
+            console.log(err)
+        });
+}
 // node_modules\.bin\sequelize model:generate --name questionnaire --attributes email:string,constructionAnomalies:bool,vacati
 // onApartment:bool,NotPurchasedFromContractorEndNoForm4:bool,purchaseInTrust:bool,theRightsSettlementProcessHasNotBeenCompleted:bool,buyersReceivers:bool,rtmentFromC
 // PR:bool,apartmentPricePeroccupant:bool,secondHandApartment:bool,privateHouse:bool,SelfBuiltHouse:bool,field:bool,equity:string,valueOfTheConference:string,centerAr

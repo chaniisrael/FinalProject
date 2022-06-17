@@ -1,0 +1,50 @@
+<%- include('./include/begin.ejs') %>
+<style>
+    .center{
+        position:absolute;
+        width:780px;
+        height:650px;
+        left:50%;
+        top:50%;
+        margin-left:-370px;
+        margin-top:-50px;
+    }
+    .p1 {
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .p2 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .p3 {
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+
+</style>
+<header id="header" class="fixed-top d-flex align-items-center  header">
+    <div  dir="rtl" class="container d-flex align-items-center justify-content-between ">
+
+        <nav id="navbar" class="navbar ">
+            <ul>
+                <li><a class="nav-link scrollto " href="/register/menuLogin">דף הבית</a></li>
+                <li><a class="nav-link scrollto " href="/clientMainPage/question">מילואי שאלון</a></li>
+                <li><a class="nav-link scrollto active" href="#file">צרוף מסמכים</a></li>
+                <li><a class="nav-link scrollto" href="/clientMainPage/trackRequest">מעקב אחר בקשות</a></li>
+                <li><a class="nav-link scrollto" href="/clientMainPage/customerMessags">הודעות</a></li>
+                <li><a class="nav-link scrollto" href="/index">יציאה</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+
+
+    </div>
+</header><!-- End Header -->
+<section id="file">
+    <div class="fst-italic row d-flex justify-content-end mb-3">
+    <pre><br>
+<h1 dir="rtl" class="center p1"><%= message91 %></h1>
+        </pre>
+    </div>
+</section>
